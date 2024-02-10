@@ -1,0 +1,255 @@
+/* written by leevayle@protonmail.com */
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background-color: #F4F6F3;
+    max-width: 1800px;
+    min-width: 265px;
+    margin: auto;
+}
+*{transition: all ease-in-out 0.2s;}
+
+.body {
+    width: 100%;
+    background-color: #F4F6F3;
+    height: 100%;
+    text-align: center;
+    font-family: 'gill sans mt', sans-serif;
+    max-height: 700px;
+}
+
+.grad{
+    background-color: #FFFFFF;
+    background: linear-gradient(to right,
+    #F4F6F3 0%,
+    #FFFFFF,
+    #FFFFFF 50%,
+    #FFFFFF,
+    #F4F6F3 100%);
+
+    height: 50%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: relative;
+    padding-top: 50px;
+    box-shadow: rgba(190, 190, 190, 0.05) 0px 1px 10px;
+}
+.title1{
+    width: 80%;
+    margin: auto;
+    height: auto;
+    max-width: 400px;
+    color: #5e914c;
+    font-size: 28px;
+}
+.title2{
+    width: 40%;
+    margin: auto;
+    height: auto;
+    max-width: 200px;
+    font-size: 18px;
+    color: #9b9b9b;
+    margin-top: 15px;
+}
+.title2 p{
+    font-size: 18px;
+}
+.pic-holder{
+    width: 100%;
+    height: 60px;
+    margin-top: 10px;
+}
+.icon{
+    height: 100%;
+    width: auto;
+}
+.pic{
+    width: 60px;
+    height: 60px;
+    margin: auto;
+}
+.button-holder{
+    width: 100%;
+    height: 180px;
+    position: absolute;
+    bottom: -80px;
+}
+.button1{
+    margin: auto;
+    height: 192px;
+    width: 192px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #C2D1BB;
+    background-image: radial-gradient(
+        #345f19e8,
+        #345f19e8 5%,
+        #e9ffdb,
+        #e0f1d6,
+        #cae2bcc4 70%,
+        #60a039c4  100%
+        
+    );
+    box-shadow: rgba(152, 255, 17, 0.363) -1px -2px 5px;
+}
+.button1:hover{
+    cursor: pointer;
+}
+.button2{
+    height: 168px;
+    width: 168px;
+    margin: auto;
+    border-radius: 50%;
+    margin-top: 11px;
+    background-color: #e9ffdb;
+    background: linear-gradient(to bottom right,
+        #f1ffe8,
+        #e0f1d6,
+        #bfe4a8c4,
+        #7aa75ee8
+    );
+    display: flex;
+    box-shadow: rgba(192, 255, 20, 0.459) 1px 1px 7px;
+}
+.button3{
+    border-radius: 50%;
+    height: 162px;
+    width: 162px;
+    margin: auto;
+    background-color: #64BA38;
+    display: flex;
+    background-image: linear-gradient(
+        #64BA38 10%,
+        #589134,
+        #4E7C34,
+        #486E32
+    );
+}
+.clock-in-text{
+    width: 100%;
+    margin: auto;
+    font-size: 25px;
+    color: #FFFFFF;
+}
+.time-display{
+    width: 100%;
+    height: 150px;
+    margin-top: 120px;
+    display: block;
+}
+.t-d-time{
+    margin: auto;
+    width: 20%;
+    min-width: 280px;
+    height: 50px;
+    color: #1b2912;
+    font-size: 30px;
+    padding-top: 30px;
+}
+.t-d-date{
+    margin: auto;
+    width: 20%;
+    min-width: 280px;
+    height: 20px;
+    color: #79996d;
+    font-size: 20px;
+    padding-top: 0px;    
+}
+
+input{
+    display: none;
+}
+
+
+
+
+/* responsiveness */
+@media screen  and (min-height:1150px){ /*    long monitors like i-pads   */
+    .body{
+        max-height: 1000px;
+    }
+    .title1{
+        margin-top: 180px;
+    }
+}
+@media screen  and (min-height:850px){ /*    long monitors like i-pads   */
+    .body{
+        max-height: 900px;
+    }
+    .title1{
+        margin-top: 100px;
+    }
+    .pic-holder{
+        margin-top: 30px;
+    }
+}
+
+
+@media screen  and (min-height:500px){ /*    long monitors like i-pads   */
+    
+    .time-display{
+        margin-top: 100px;
+    }
+}
+
+/* Galaxy fold */
+@media screen  and (min-height:500px) and (width:717px){ /*    long monitors like i-pads   */
+    .title1{
+        margin-top: -20px;
+    }
+    .time-display{
+        margin-top: 80px;
+    }
+}
+@media screen  and (height:653px) and (width:280px){ /*    long monitors like i-pads   */
+    .grad{
+        padding-top: 1px;
+        height: 58%;
+    }
+    .time-display{
+        margin-top: 100px;
+    }
+}
+
+
+
+@media screen  and (max-width:1024px){ /*    Upto Ipad pro   */
+
+}
+
+ @media screen and (max-width:890px){ /*   Ipad air  */
+
+}
+
+ @media screen and (max-width:780px){ /*   Ipad mini  */
+
+}
+
+@media screen and (max-width:720px){ /*   Unfolded galaxy fold    */
+
+}
+
+ @media screen and (max-width:610px){ /*   SURFACE DUO */
+
+}
+
+ @media screen and (max-width:440px) { /*  upto iphone 14 pro-max  */
+
+}
+
+@media screen and (max-width:380px) { /*  Normal phones */
+    .title1{
+        margin-top: 35px;
+    }
+}
+
+@media screen and (max-width:290px){ /*   Samsung galaxy fold - when in fold*/
+.title1{
+    margin-top: 20px;
+}
+}
+
+@media screen and (max-width:170px){ /* Smart watches */
+
+}

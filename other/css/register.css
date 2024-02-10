@@ -1,0 +1,119 @@
+.register{
+    width:100%;
+    height: 100%;
+    display: flex;
+    background-color: rgb(255, 255, 255);
+}
+.main-center{
+    margin: auto;
+    height: 80%;
+    width: 90%;
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(87, 87, 87, 0) 0px 1px 15px;
+}
+.form-title{
+    width: 50%;
+    height: auto;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin: auto;
+    font-family: 'cocomat',sans-serif;
+    font-size: x-large;
+    color: rgb(70, 70, 70);
+}
+.left1{
+    width: 50%;
+    height: 100%;
+    margin: auto;
+}
+.input-holder2{
+    width: 90%;
+    height: 35px;
+    display: flex;
+    margin-top: 20px;
+}
+ input,select{
+    border: 1px solid rgb(109, 109, 109);
+    border-radius: 4px;
+    font-family: 'corbel',sans-serif;
+    font-size: medium;
+}
+input:focus{
+    outline: none;
+    font-weight: bold;
+    color: rgb(11, 0, 59);
+}
+.input-holder2 input,select{
+    margin: auto;
+    height: 25px;
+    width: 45%;
+    text-align: center;
+}
+.input-holder1{
+    width: 90%;
+    height: 25px;
+    display: block;
+    margin-top: 30px;
+}
+.ione{
+    width: 90%;
+    height: 100%;
+    margin-left: 8px;
+    padding-left: 20px;
+}
+.full{
+    width: 100%;
+    height: auto;
+}
+.reg{
+    width: 30%;
+    height: 30px;
+    margin: auto;
+}
+#btns{
+    margin-top: 40px;
+
+}
+.search{
+    width: 80%;
+    height: 90%;
+    margin-top: 2px;
+    display: flex;
+}
+.search-input{
+    width: 99%;
+    height: 90%;
+    margin: auto;
+    border-radius: 10px;
+    border: 1px solid rgba(175, 175, 175, 0);
+    text-align: left;
+    padding-left: 20px;
+    background:transparent;
+    box-shadow: rgba(87, 87, 87, 0) 0px 1px 15px;
+}
+.search-btn{
+    width: 20%;
+    height: 100%;
+    right: 0px;
+    display: flex;
+}
+.search-btn:hover{
+    cursor: pointer;
+    background-color: rgb(240, 240, 240);
+}
+.flex{
+    display: flex;
+    overflow: hidden;
+}
+.sb{
+    width: 30px;
+    height: 30px;
+    margin: auto;
+}
+
+@media screen and (max-width:450px){
+    #s-form{
+        display: none;
+    }
+}

@@ -1,0 +1,43 @@
+.graph-cont{
+    height: 99%;
+}
+.hidden{
+    display: none;
+}
+#graph1{
+    width: 100%;
+    min-height: 95%;
+    margin: auto;
+}
+
+.filter-reports{
+    visibility: visible;
+}
+#apply-filters{
+    display: none
+}
+
+
+@media screen and (max-width:450px) { /*  upto iphone 14 pro-max  */
+    .filter-main-reports{
+        display: block;
+        width: 130%;
+        border: 1px solid rgba(0, 128, 0, 0);
+    }
+    .filter-reports{
+        width: 150%;
+        border: 1px solid rgba(255, 0, 0, 0);
+    }
+    #dpt{
+        display: none;
+    }
+    .filter-date-reports{
+        width: 90px;
+    }
+    #apply-filters{
+        display: block;
+        right: 38%;
+        width: 70px;
+        text-align: center;
+    }
+}

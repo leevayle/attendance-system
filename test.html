@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body style="padding: 10%;">
+
+    <form id="form">
+        <input type="text" id="name">
+        <button type="submit">Submit</button> </form>
+
+    <script>
+        document.getElementById('form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission behavior
+            var name = document.getElementById('name').value;
+            localStorage.setItem("name", name); // Use localStorage for persistence
+            console.log("Name saved to localStorage:", localStorage.getItem("name"));
+
+            // Redirect to the second page immediately
+            window.location.href = 'test2.html';
+        });
+    </script>
+</html>

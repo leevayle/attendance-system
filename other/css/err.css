@@ -1,0 +1,46 @@
+/* written by leevayle@protonmail.com */
+/* err */
+html, body {
+    height: 60%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all ease-in-out 0.2s;
+}
+
+.err {
+    position: relative;
+    width: 500px;
+    height: 80%;
+    margin-top: 10%;
+    background-color: #f0f0f0;
+    padding-top: 20px;
+    text-align: center;
+}
+.title{
+    width: 100%;
+    height: 200px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    position: relative;
+    background-color: rgb(255, 206, 206);
+}
+.h1{
+    color: rgb(202, 107, 107); 
+    font-family: 'cocomat',sans-serif;
+}
+button{
+    width: 150px;
+    height: 30px;
+    border: 1px solid rgb(255, 203, 203);
+    border-radius: 5px;
+    background: transparent;
+    margin-top: 30px;
+    margin-left: 30%;
+    color: rgb(172, 114, 114);
+}
+button:hover{
+    cursor: pointer;
+    background-color: rgb(204, 255, 204);
+}

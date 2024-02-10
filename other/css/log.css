@@ -1,0 +1,457 @@
+/* written by leevayle@protonmail.com */
+html{
+    width: 100%;
+    min-height: 100%;
+}
+body{
+    background: linear-gradient(to left,
+    #9888DC 0.5%,
+    #F2F2F2 99%
+    );
+    padding: 0px;
+    text-align: center;
+    margin: auto;
+    font-family: 'berlin sans',sans-serif;
+    min-height: 100%;
+    max-height: 100%;
+}
+.icon{
+    height: 100%;
+    width: 100%;
+}
+*{ transition: all ease-in-out 0.15s;}
+/*________________________________*/
+
+
+
+
+/*________________________________*/
+
+.flex{
+    display: flex;
+    margin: auto;
+    width: 60%;
+    margin-top: 7%;
+    height: auto;
+    max-height: 95%;
+    max-width: 900px;
+}
+.flexed{
+    display: block;
+    height: 400px;
+}
+#f1{
+    width: 80%;
+    margin: auto;
+}
+#f2{
+    width: 10%;
+    display: none;
+    margin: auto;
+    padding-top: 4%;
+}
+.form-cont{
+    width: 95%;
+    height: 90%;
+    margin: auto;
+    border-radius: 25px;
+    margin-top: 3%;
+    background-color: #ffffff;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 7px;
+
+}
+.form-flex{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+#ff1{
+    width: 50%;
+    height:100%;
+    margin: auto;
+}
+#ff2{
+    width: 50%;
+    height:100%;
+    background: linear-gradient(to left,
+    #4B34AE,
+    #5b80a7
+    );
+    margin: auto;
+    border-top-left-radius: 140px;
+    border-bottom-left-radius: 70px;
+    overflow: hidden;
+    position: relative;
+    font-size: 20px;
+}
+.title{
+    font-family: 'gill sans', sans-serif;
+    padding-top: 60px;
+    font-size: 25px;
+    color: rgb(60, 41, 97);
+}
+
+form{
+    margin: auto;
+    margin-top: 10px;
+    border: 1px solid rgba(165, 42, 42, 0);
+}
+.input{
+    border: 1px solid rgb(202, 202, 202);
+    height: 30px;
+    width: 220px;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    padding-left: 15px;
+    border-radius: 5px;
+    position: relative;
+}
+.icon-i{
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    border-radius: 50%;
+}
+#password-view:hover{
+    cursor: pointer;
+}
+
+input{
+    height: 28px;
+    width: 177px;
+    border: none;
+    padding-left: 0px;
+    font-family: 'corbel', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgba(30, 164, 197, 0.692);
+}
+input:focus{
+    border: none;
+    outline: none;
+}
+#password:focus #pass{
+    border-right: 2px solid rgb(202, 202, 202);
+}
+a{ 
+    text-decoration: none;
+    color: rgb(190, 190, 190);
+    margin-top: 25px;
+}
+#a{
+    cursor: pointer;
+}
+button{
+    margin-top: 25px;
+    width: 130px;
+    height: 35px;
+    bottom: 0px;
+    border: none;
+    border-radius: 8px;
+    background-color: #413692;
+    color: #F2F2F2;
+    font-size: 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 7px;
+
+}
+button:hover{
+    cursor: pointer;
+    background-color: #6452f3;
+}
+#register:hover{
+    background-color: #f1f1f1; 
+    color: #4B34AE;
+}
+
+#title2{
+    font-size: 30px;
+    margin-top: 50px;
+    color: #F2F2F2;
+}
+.p{
+    width: 80%;
+    margin: auto;
+    color: #cccccc;
+}
+#register{
+    margin-top: 5px;
+    background:transparent;
+    box-shadow: none;
+    border: 1px solid rgb(211, 211, 211);
+}
+.info{
+    position: absolute;
+    top:5px;
+    right: 5px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    color: aliceblue;
+}
+.info p{
+    margin-top: 5px;
+}
+.info:hover{
+    cursor: pointer;
+    background-color: rgba(156, 156, 156, 0.473);
+}
+.quick{
+    width: 100%;
+    height: 30%;
+    margin: auto;
+}
+.quick p{
+    font-family: 'cocomat',sans-serif;
+    color: #000000;
+}
+.quick1{
+    opacity: 0.6;
+    margin: auto;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    margin-top: 20%;
+    box-shadow: rgba(0, 0, 0, 0.36) 0px 1px 7px;
+}
+.quick1:hover{
+    cursor: pointer;
+    opacity: 1;
+}
+
+
+/*  IPAD PRO    */
+@media screen and (max-width:1024px){
+   body{
+    padding-top: 5%;
+   }
+   
+    .flex{
+    display: block;
+    width: 80%;
+   }
+   #f1{
+    width: 80%;
+   }
+    #f2{
+    display: none;
+    margin-top: 50px;
+    width: 50%;
+    height: auto;
+    padding: 0px;
+   } 
+   .quick{
+    margin-top: 0px;
+   }
+
+}
+/*  SURFACE PRO    */
+@media screen and (max-width:920px){
+    body{
+     padding-top: 5%;
+    }
+    
+     .flex{
+     display: block;
+     width: 95%;
+    }
+    #f1{
+     width: 80%;
+    }
+     #f2{
+     display: none;
+     margin-top: 50px;
+     width: 50%;
+     height: auto;
+     padding: 0px;
+    } 
+    .quick{
+     margin-top: 0px;
+    }
+ 
+ }
+ 
+/*  IPAD AIR & MINI   */
+@media screen and (max-width:825px){
+    .flex{
+     display: block;
+     width: 80%;
+    }
+    #f1{
+     width: 100%;
+     margin-top: 13%;
+    }
+     #f2{
+     display: none;
+     margin-top: 30px;
+     width: 50%;
+     height: auto;
+     padding: 0px;
+    } 
+    .quick{
+     margin-top: 0px;
+    }
+ 
+ }
+
+ /*  GALAXY FOLD -UNFOLDED-   */
+@media screen and (max-width:825px){
+    body{
+        padding-top: 2%;
+       }
+    .flex{
+     width: 85%;
+    }
+ 
+ }
+
+ /*  SURFACE DUO   */
+@media screen and (max-width:540px){
+    body{
+        background: linear-gradient(to top,
+        #9888DC 0.5%,
+        #F2F2F2 99%
+        );
+    }
+    .flex{
+     display: block;
+     width: 80%;
+    }
+    .form-flex{
+        display: block;
+        position: relative;
+    }
+    #f1{
+     width: 100%;
+     height: auto;
+     
+    }
+     #f2{
+     display: none;
+     margin-top: 30px;
+     width: 70%;
+     height: auto;
+     padding: 0px;
+    } 
+    #ff1{
+        width: 80%;
+        height: 350px;
+        margin-bottom: 20px;
+    }
+    #ff2{
+        background: linear-gradient(to top,
+    #5847a7 1%,
+    #6e89a7 99%
+    );
+        width: 100%;
+        border-bottom-left-radius: 0px;
+        border-top-left-radius: 70px;
+        padding-top: 0px;
+    }
+    .title{
+        margin-top: 0px;
+    }
+    #title2{
+        margin-top: 0px;
+    }
+    #register{
+        margin-bottom: 25px;
+    }
+    .quick{
+     margin-top: 0px;
+    }
+ 
+ }
+
+  /*  IPHONE 14 PRO MAX  */
+@media screen and (max-width:450px){
+    #title2{
+        font-size: 23px;
+    }
+    .p{
+        width: 70%;
+    }
+    #f1{
+        margin-top: 25%;
+    }
+        #ff2{
+        width: 100%;
+        border-top-left-radius: 60px;
+        border-top-right-radius: 20px;
+        padding-top: 0px;
+    }
+ }
+
+   /*  NORMAL PHONES  */
+@media screen and (max-width:370px){
+    .title{
+        padding-top: 20px;
+    }
+    #title2{
+        font-size: 20px;
+    }
+    .p{
+        width: 70%;
+        font-size: 15px;
+    }
+    .flex{
+        width: 85%;
+    }
+    #ff1{
+        width: 80%;
+        height: 300px;
+        margin-bottom: 0px;
+    }
+    .input{
+        height: 40px;
+        padding-top: 0px;
+        border-radius: 8px;
+    }
+    input{
+        margin-top: 5px;
+    }
+    .icon-i{
+        margin-top: 5px;
+        margin-left: 3px;
+    }
+    #f2{
+        width: 80%;
+    }
+ }
+
+   /*  GALAXY FOLD -FOLDED-  */
+   @media screen and (max-width:290px){
+    .title{
+        padding-top: 20px;
+    }
+    #title2{
+        font-size: 20px;
+    }
+    .p{
+        width: 70%;
+        font-size: 15px;
+    }
+    .flex{
+        width: 95%;
+    }
+    #ff1{
+        width: 95%;
+        height: 300px;
+        margin-bottom: 0px;
+    }
+    .input{
+        width: 80%;
+    }
+    input{
+        width: 75%;
+    }
+    #f2{
+        width: 80%;
+    }
+ }
+/* written by leevayle@protonmail.com */

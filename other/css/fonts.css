@@ -1,0 +1,74 @@
+@font-face {
+    font-family: 'gill sans';
+    src: url('../fonts/GILSANUB.TTF') format('truetype');
+
+    font-weight: bold;
+    font-style: normal;}
+
+    @font-face {
+        font-family: 'gill sans mt';
+        src: url('../fonts/GIL.TTF') format('truetype');
+    
+        font-weight: normal;
+        font-style: normal;}
+    
+@font-face {
+
+    font-family: 'berlin sans';
+    src: url('../fonts/BRLNSR.TTF') format('truetype');
+
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'arial rounded';
+    src: url('../fonts/ARLRDBD.TTF') format('truetype');
+
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'cocomat';
+    src: url('../fonts/cocomat.ttf') format('truetype');
+
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'copper plate';
+    src: url('../fonts/COPRGTB.TTF') format('truetype');
+
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'corbel';
+    src: url('../fonts/corbel.ttf') format('truetype');
+
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'high tower';
+    src: url('../fonts/HTOWERT.TTF') format('truetype');
+
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'candra light';
+    src: url('../fonts/Candaral.ttf') format('truetype');
+
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'century gothic';
+    src: url('../fonts/GOTHIC.TTF') format('truetype');
+
+    font-weight: normal;
+    font-style: normal;
+}

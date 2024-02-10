@@ -1,0 +1,449 @@
+/* written by leevayle@protonmail.com */
+/*__________Notification___________*/
+.notify-cont{
+    position: absolute;
+    top: -150px;
+    margin: auto;
+    width: 100%;
+    height: 60px;
+    padding-top: 20px;
+    font-family: 'corbel',sans-serif;
+    font-weight: bold;
+    transition: top 0.3s ease;
+}
+.main-n-cont{
+    width: 351px;
+    height: 63px;
+    margin: auto;
+    border: 1px solid rgba(255, 0, 0, 0);
+    position: relative;
+    padding: 0px;
+}
+/*success*/
+.main-n{
+    width: 350px;
+    height: 55px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    border-top-left-radius: 9px;
+    border-bottom-left-radius: 9px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 4px;
+    z-index: 200;
+    background-color: #b1e0b1;
+    color: #0c970c; 
+    box-shadow: rgba(0, 0, 0, 0.082) 0px 1px 7px;  
+
+}
+
+.left-n{
+    height: 100%;
+    width: 6px;
+    background-color: #50bb50;
+    left: 0px;
+}
+.right-n{
+    height: 100%;
+    width: 40px;
+    background-color: #8bd68f;
+    position: absolute;
+    right: 0px;
+    top:0px;
+}
+.right-n:hover{
+    cursor: pointer;
+    background-color: #83db88;
+}
+.cross{
+    width: 4px;
+    height: 19px;
+    position: absolute;
+    bottom: 19px;
+    border-radius: 4px;
+    background-color: #3a943a;
+}
+#cross1{
+    left:17px;
+    transform: rotate(46deg);
+
+}
+#cross2{
+    left: 17px;
+    transform: rotate(-46deg);
+}
+#cross3{
+    height: 17px;
+    background-color: white;
+    position: absolute;
+    bottom: 3px;
+    left: 13px;
+    transform: rotate(45deg);
+}
+#cross4{
+    background-color: white;
+    position: absolute;
+    bottom: 5px;
+    left: 6px;
+    height: 10px;
+    transform: rotate(-40deg);
+}
+.check-n{
+    height: 27px;
+    width: 27px;
+    border-radius: 50%;
+    background-color: #409c40;
+    position: absolute;
+    bottom: 14px;
+    left: 20px; 
+    transform: rotate(-6deg);
+    
+}
+.text-n{
+    width: 72%;
+    height: 80%;
+    position: absolute;
+    bottom: -5px;
+    left: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-left: 7px; 
+    text-align: left; 
+}
+#success{
+    display: none;
+}
+
+/*error*/
+.main-n-e{
+    width: 350px;
+    height: 55px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    border-top-left-radius: 9px;
+    border-bottom-left-radius: 9px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 4px;
+    z-index: 5500;
+    background-color: #e0b1b1;
+    color: #970c0c;
+    box-shadow: rgba(0, 0, 0, 0.082) 0px 1px 7px;  
+    
+
+}
+.left-n-e{
+    height: 100%;
+    width: 6px;
+    background-color: #bb5050;
+    left: 0px;
+}
+.right-n-e{
+    height: 100%;
+    width: 40px;
+    background-color: #d68b8b;
+    position: absolute;
+    right: 0px;
+    top:0px;
+}
+.right-n-e:hover{
+    cursor: pointer;
+}
+.cross-e{
+    width: 4px;
+    height: 19px;
+    position: absolute;
+    bottom: 19px;
+    border-radius: 4px;
+    background-color: #943a3a;
+}
+#cross1-e{
+    left:17px;
+    transform: rotate(46deg);
+
+}
+#cross2-e{
+    left: 17px;
+    transform: rotate(-46deg);
+}
+#cross3-e{
+    height: 12px;
+    background-color: white;
+    position: absolute;
+    bottom: 10px;
+    left: 12px;
+    transform: rotate(0deg);
+}
+#cross4-e{
+    background-color: white;
+    position: absolute;
+    bottom: 3.5px;
+    left: 12px;
+    height: 4px;
+}
+.check-n-e{
+    height: 27px;
+    width: 27px;
+    border-radius: 50%;
+    background-color: #9c4040;
+    position: absolute;
+    bottom: 14px;
+    left: 20px; 
+    transform: rotate(0deg);
+    
+}
+#error{
+    display: none;
+}
+
+/*Info alert*/
+.main-n-i{
+    width: 350px;
+    height: 55px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    border-top-left-radius: 9px;
+    border-bottom-left-radius: 9px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 4px;
+    z-index: 5500;
+    background-color: #b1dae0;
+    color: #0c8e97;
+    box-shadow: rgba(0, 0, 0, 0.082) 0px 1px 7px;  
+    
+
+}
+.left-n-i{
+    height: 100%;
+    width: 6px;
+    background-color: #50abbb;
+    left: 0px;
+}
+.right-n-i{
+    height: 100%;
+    width: 40px;
+    background-color: #8bcdd6;
+    position: absolute;
+    right: 0px;
+    top:0px;
+}
+.right-n-i:hover{
+    cursor: pointer;
+}
+.cross-i{
+    width: 4px;
+    height: 19px;
+    position: absolute;
+    bottom: 19px;
+    border-radius: 4px;
+    background-color: #3a9194;
+}
+#cross1-i{
+    left:17px;
+    transform: rotate(46deg);
+
+}
+#cross2-i{
+    left: 17px;
+    transform: rotate(-46deg);
+}
+#cross3-i{
+    height: 13px;
+    background-color: white;
+    position: absolute;
+    bottom: 3px;
+    left: 12px;
+    transform: rotate(0deg);
+}
+#cross4-i{
+    background-color: white;
+    position: absolute;
+    top: 5px;
+    left: 12px;
+    height: 4px;
+    transform: rotate(0deg);
+}
+.check-n-i{
+    height: 27px;
+    width: 27px;
+    border-radius: 50%;
+    background-color: #40999c;
+    position: absolute;
+    bottom: 14px;
+    left: 20px; 
+    transform: rotate(0deg);
+    
+}
+
+#info{
+    display: none;
+}
+
+
+/*warning alert*/
+.main-n-w{
+    width: 350px;
+    height: 55px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    border-top-left-radius: 9px;
+    border-bottom-left-radius: 9px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 4px;
+    z-index: 5500;
+    background-color: #e0dbb1;
+    color: #977d0c;
+    box-shadow: rgba(0, 0, 0, 0.082) 0px 1px 7px;  
+}
+.left-n-w{
+    height: 100%;
+    width: 6px;
+    background-color: #ccbe00;
+    left: 0px;
+}
+.right-n-w{
+    height: 100%;
+    width: 40px;
+    background-color: #d6c88b;
+    position: absolute;
+    right: 0px;
+    top:0px;
+}
+.right-n-w:hover{
+    cursor: pointer;
+}
+.cross-w{
+    width: 4px;
+    height: 19px;
+    position: absolute;
+    bottom: 19px;
+    border-radius: 4px;
+    background-color: #94833a;
+}
+#cross1-w{
+    left:17px;
+    transform: rotate(46deg);
+
+}
+#cross2-w{
+    left: 17px;
+    transform: rotate(-46deg);
+}
+#cross3-w{
+    height: 13px;
+    background-color: white;
+    position: absolute;
+    bottom: 3px;
+    left: 12px;
+    transform: rotate(0deg);
+}
+#cross4-w{
+    background-color: white;
+    position: absolute;
+    top: 5px;
+    left: 12px;
+    height: 4px;
+    transform: rotate(0deg);
+}
+.check-n-w{
+    height: 27px;
+    width: 27px;
+    border-radius: 50%;
+    background-color: #9c8740;
+    position: absolute;
+    bottom: 14px;
+    left: 20px; 
+    transform: rotate(180deg);
+    
+}
+
+#warning{
+    display: none;
+}
+
+/*  IPHONE 14 PRO MAX   */
+@media screen and (max-width:450px){
+
+/*warning alert*/
+.text-n{
+    left: 40px;
+}
+.notify-cont{
+    padding-top: 15px;
+    font-size: 15px;
+}
+.main-n-cont{
+    max-width: 351px;
+    width: 90%;
+    height: 53px;
+    margin: auto;
+    border: 1px solid rgba(255, 0, 0, 0);
+    padding: 0px;
+}
+
+.main-n-w{
+    width: 270px;
+    height: 45px;
+    position: relative;
+    margin: auto;
+    margin-top: 4px;
+    margin-bottom: 4px;}
+.cross-w{
+    bottom: 14px;
+}
+.check-n-w{
+    bottom: 10px; 
+    left: 15px;   
+}
+
+.main-n{
+    width: 270px;
+    height: 45px;
+    position: relative;
+    margin: auto;
+    margin-top: 4px;
+    margin-bottom: 4px;}
+.cross{
+    bottom: 14px;
+}
+.check-n{
+    bottom: 10px; 
+    left: 15px;   
+}
+
+.main-n-e{
+    width: 270px;
+    height: 45px;
+    position: relative;
+    margin: auto;
+    margin-top: 4px;
+    margin-bottom: 4px;}
+.cross-e{
+    bottom: 14px;
+}
+.check-n-e{
+    bottom: 10px; 
+    left: 15px;   
+}
+
+.main-n-i{
+    width: 270px;
+    height: 45px;
+    position: relative;
+    margin: auto;
+    margin-top: 4px;
+    margin-bottom: 4px;}
+.cross-i{
+    bottom: 14px;
+}
+.check-n-i{
+    bottom: 10px; 
+    left: 15px;   
+}
+ }

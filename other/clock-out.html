@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Attendance system</title>
+        <link rel="stylesheet" href="css/dash.css">
+        <link rel="stylesheet" href="css/fonts.css">
+        <link rel="stylesheet" href="css/co.css">
+        <link rel="icon" href="images/favicon.png">
+    </head>
+<body>
+    <div class="body">
+
+                <!--    BLUR BACK LOADING   -->
+<div class="blur-back-100" id="blur-back-100">
+    <div class="b-b-101">
+        <img class="icon" src="images/loading.gif">
+    </div>
+</div>
+
+        <div class="grad">
+
+            <div class="title1">
+               
+               <b>Hey there, <b id="name">Leevayle!</b></b>
+               <script>
+                document.getElementById('name').innerHTML = localStorage.getItem("user")+"!";
+               </script>
+            </div>
+
+            <div class="title2">
+                
+                <p>Click the button below to clock  out!</p>
+            </div>
+
+            <div class="pic-holder">
+                <div class="pic">
+                    <img class="icon" src="images/arrow down.png">
+                </div>
+            </div>
+
+            <div class="button-holder">
+                <div class="button1" onclick="LogOut()">
+                    <div class="button2">
+                        <div class="button3">
+                            <div class="clock-in-text">
+                               <b>Clock Out</b> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="time-display">
+                <div class="t-d-time" id="time"><b>Getting time...</b></div>
+                <div class="t-d-date" id="date">...</div>
+        </div>
+
+    </div>
+</body>
+
+<script src="js/dash.js" defer></script>
+<script src="js/fns.js" defer></script>
+
+</html>
