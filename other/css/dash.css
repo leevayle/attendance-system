@@ -126,17 +126,18 @@ a{text-decoration: none;}
 .profile-nav-pic{
     width: 60px;
     height: 60px;
-    border: 1px solid rgba(255, 255, 255, 0.589);
+    border: 1px solid;
+    border-color: red;
     margin: auto;
     margin-top: 10px;
     border-radius: 50%;
     overflow: hidden;
     padding: 1px 1px 1px 1px;
-    box-shadow: rgba(255, 255, 255, 0.473) 0px 1px 8px;
+    box-shadow: rgba(255, 255, 255, 0.582) 0px 1px 8px;
 }
 .profile-nav-pic:hover{
     cursor: pointer;
-    box-shadow: rgba(25, 255, 236, 0.774) 0px 1px 10px;
+    box-shadow: rgba(255, 255, 255, 0.774) 0px 1px 10px;
 }
 .profile-nav-caption{
     width: 100%;
@@ -208,6 +209,7 @@ a{text-decoration: none;}
 }
 #searchbar{
     width: 80%;
+    display: flex;
 }
 .phone-nav{
     display: none;
@@ -243,11 +245,10 @@ a{text-decoration: none;}
     right: 10px;
     background: transparent;
     box-shadow: none;
+    display: flex;
 }
 .top-profile{
-    position: absolute;
-    top: 1px;
-    right: 10px;
+    margin-left: 20%;
     height: 35px;
     width: 35px;
     border-radius: 50%;

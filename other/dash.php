@@ -195,6 +195,7 @@
                                     <img class="icon" src="images/icons/bell.png">
                                 </div>
                                 
+                                
                             </div>
                         </div>
                     </div>
@@ -328,38 +329,7 @@
         </div>
 
 
-        <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "attendancesystemapp001";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Query to fetch data from company table
-$sql = "SELECT name FROM company";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // Output data of the first row
-    $row = $result->fetch_assoc();
-    // Check if name exists
-    if (!empty($row["name"])) {
-        // Display company name in a paragraph element
-        echo "<p id='company-name'>" . $row["name"] . "</p>";
-    }
-} 
-
-// Close connection
-$conn->close();
-?>
-
+        
         
     
 </body>

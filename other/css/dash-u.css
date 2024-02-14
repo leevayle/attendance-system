@@ -107,7 +107,7 @@ body {
     height: 87%;
     margin: auto;
     border-radius: 50%;
-    background-color: aliceblue;
+    background-color: rgba(240, 248, 255, 0.575);
     box-shadow: rgba(0, 0, 0, 0.411) 0px 1px 10px;
     overflow: hidden;
     z-index: 3;

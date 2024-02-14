@@ -92,6 +92,16 @@ document.getElementById('clock-out-phone-dash').addEventListener('click', ()=>{
         window.location.href = clockout;
     },950);
 });
+
+document.getElementById('notificationsbtn').addEventListener('click', ()=>{
+    setTimeout(()=>{
+    
+        infotext.textContent = "No new notifications";
+        info.style.display = "block";
+        showNotif();
+    }, 30);
+});
+
 document.getElementById('clock-out-phone-reports').addEventListener('click', ()=>{
     Loading();
     setTimeout(()=>{
