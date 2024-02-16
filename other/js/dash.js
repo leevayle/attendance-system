@@ -102,6 +102,18 @@ document.getElementById('notificationsbtn').addEventListener('click', ()=>{
     }, 30);
 });
 
+// settings btn
+const set = document.getElementById('settings-back');
+document.getElementById('settingsbtn').addEventListener('click', ()=>{
+    
+    set.style.right = (set.style.right === '-500px' || set.style.right === '') ? '10px' : '';
+});
+document.getElementById('settings-close').addEventListener('click', ()=>{
+     set.style.right = '-500px';
+});
+
+
+
 document.getElementById('clock-out-phone-reports').addEventListener('click', ()=>{
     Loading();
     setTimeout(()=>{

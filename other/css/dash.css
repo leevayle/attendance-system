@@ -169,6 +169,93 @@ a{text-decoration: none;}
     color: #9b9b9b;
 }
 
+/*  settings ____________________-   */
+.settings-back{
+    width: 400px;
+    height: 90%;
+    border-radius: 20px;
+    background-color: #f4f8fff8;
+    opacity: 1;
+    position: absolute;
+    right: -500px;
+    top: 60px;
+    z-index: 1;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 15px;
+    transition: right 0.15s ease;
+    overflow: hidden;
+    font-family: 'cocomat', sans-serif;
+}
+.settings-back h3{
+    color: #003e57;
+    font-size: larger;
+}
+.settings{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+.set-top{
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid rgba(156, 156, 156, 0.432);
+    position: absolute;
+    top: 0px;
+    text-align: center;
+    display: flex;
+}
+
+.set-top-logo{
+    width: 35px;
+    height: 35px;
+    margin: auto;
+    margin-left: 20px;
+    margin-right: 30px;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 5px;
+}
+
+.set-top-close{
+    width: 30px;
+    height: 30px;
+    margin: auto;
+    margin-right: 20px;
+}
+.set-top-close:hover{
+    cursor: pointer;
+}
+.set-theme{
+    width: 100%;
+    height: 100px;
+    padding-top: 80px;
+    display: flex;
+    text-align: center;
+}
+.theme-box{
+    width: 100%;
+    height: 100px;
+    display: flex;
+}
+.theme-box-pic{
+    width: auto;
+    height: 80%;
+    margin: auto;
+    display: flex;
+    border-radius: 10px;
+}
+.theme-box-pic:hover{
+    cursor: pointer;
+    box-shadow: rgba(122, 122, 122, 0.377) 0px 0px 15px;
+}
+.height-only{
+    height: 100%;
+    width: auto;
+    margin: auto;
+}
+.set-title{
+    text-align: center;
+    margin-top: 10px;
+    color: #012e6d;
+}
 
 
 /*  Dash    ___________________________*/
