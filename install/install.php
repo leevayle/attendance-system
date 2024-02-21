@@ -77,6 +77,7 @@ try {
 
     // Create company table
     $sql_create_company = "CREATE TABLE IF NOT EXISTS company (
+        ref VARCHAR(20),
         name VARCHAR(100) NOT NULL,
         logo_dir VARCHAR(255),
         work_in_time TIME,
@@ -86,9 +87,17 @@ try {
         throw new Exception("Error creating table 'company': " . $conn->error);
     }
 
+    // Insert into company table with ref value 1
+    $sql_insert_company = "INSERT INTO company (ref) VALUES ('1')";
+    if ($conn->query($sql_insert_company) !== TRUE) {
+        throw new Exception("Error inserting data into 'company' table: " . $conn->error);
+    }
+
     // Create clock table
     $sql_create_clock = "CREATE TABLE IF NOT EXISTS clock (
         id_no VARCHAR(20),
+        fname VARCHAR(50),
+        lname VARCHAR(50),
         date DATE,
         time_in TIME,
         time_out TIME,
@@ -151,6 +160,7 @@ try {
 $conn->close();
 
 ?>
+
 
 
 

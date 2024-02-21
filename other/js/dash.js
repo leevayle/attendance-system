@@ -120,4 +120,3 @@ document.getElementById('clock-out-phone-reports').addEventListener('click', ()=
         window.location.href = clockout;
     },950);
 });
-

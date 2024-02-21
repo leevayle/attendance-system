@@ -89,6 +89,7 @@
     </div>
     </section>
 
+<!--    SETTINGS    -->
     <section id="settings">
         <div class="settings-back" id="settings-back">
             <div class="settings">
@@ -110,6 +111,34 @@
                 </div>
                 <div class="set-title">Choose your theme</div>
                 <hr />
+
+
+                <form id="company-form" method="post" action="update-c.php">
+                    <div class="company-name-form">
+                        <input type="text" name="company-name" placeholder="Company Name">
+                        <p>Company Name</p>
+                    </div>
+                
+                    <div class="company-name-form" style="display: block;">
+                        <input type="time" name="ci-time" placeholder="Clock in time">
+                        <p>Clock in Time</p>
+                    </div>
+                
+                    <div class="company-name-form">
+                        <input type="time" name="co-time" placeholder="Clock out time">
+                        <p>Clock out Time</p>
+                    </div>
+                    <hr />
+                
+                   <!-- <div class="company-name-form">
+                        <input type="file" name="logo" style="width: 200px;">  
+                        <label for="logo">Company Logo</label>                 
+                    </div> -->
+                    
+                
+                    <button class="f-button" type="submit">Update</button>
+                </form>                
+                
                 
             
             </div>
@@ -143,7 +172,7 @@
                             <div class="tile-title">Clock Out</div>
                         </div>                    
                     </a>
-                    <a href="#clock-reports" id="clock-reports">
+                    <a href="#clock-reports" id="clock-reports" >
                         <div class="tiles" title="clock reports">
                             <div class="tile-icon"><img class="icon" src="images/user list.png"></div>
                             <div class="tile-title">Clock reports</div>
@@ -170,7 +199,7 @@
                     </a>
 
                     <!--    Nav profile -->
-                    <div class="profile-nav">
+                    <div class="profile-nav" title="Click to log out">
                         <div class="profile-nav-pic" onclick="LogOut()">
                             <img id="user-profile" class="icon" src="images/profile.png">
                         </div>
@@ -289,7 +318,7 @@
                                         <img src="images/icons/8666798_clock_watch_icon.png" class="icon">
                                     </div>
                                     <div class="tile-title-dash"></div>
-                                    <div class="tile-title-dash2">12</div>
+                                    <div class="tile-title-dash2">0</div>
                                     
                                     <div class="tile-title-dash3">late check ins</div>
                                 </div>
@@ -299,7 +328,7 @@
                                         <img src="images/icons/8666798_clock_watch_icon.png" class="icon">
                                     </div>
                                     <div class="tile-title-dash"></div>
-                                    <div class="tile-title-dash2">120</div>
+                                    <div class="tile-title-dash2">0</div>
                                     
                                     <div class="tile-title-dash3">On time check in</div>
                                 </div>                        
@@ -314,7 +343,7 @@
                                         <img src="images/icons/8666539_pie_chart_icon.png" class="icon">
                                     </div>
                                     <div class="tile-title-dash"></div>
-                                    <div class="tile-title-dash2">192</div>
+                                    <div class="tile-title-dash2">0</div>
                                     
                                     <div class="tile-title-dash3">registered</div>
                                 </div>
@@ -324,7 +353,7 @@
                                         <img src="images/icons/8666691_home_icon.png" class="icon">
                                     </div>
                                     <div class="tile-title-dash"></div>
-                                    <div class="tile-title-dash2">192</div>
+                                    <div class="tile-title-dash2">0</div>
                                     
                                     <div class="tile-title-dash3">Enrolled</div>
                                 </div>
@@ -334,7 +363,7 @@
                                         <img src="images/icons/account_circle_FILL0_wght400_GRAD0_opsz24.png" class="icon">
                                     </div>
                                     <div class="tile-title-dash"></div>
-                                    <div class="tile-title-dash2">13</div>
+                                    <div class="tile-title-dash2">0</div>
                                     
                                     <div class="tile-title-dash3">Absent today</div>
                                 </div>

@@ -256,6 +256,41 @@ a{text-decoration: none;}
     margin-top: 10px;
     color: #012e6d;
 }
+.company-name-form{
+    width: 100%;
+    display: block;
+    height: auto;
+    border: 1px solid rgba(255, 0, 0, 0.007);
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+.company-name-form input{
+    background-color: #ffffff;
+    height: 20px;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 5px;
+    text-align: center;
+    width: 300px;
+    margin-left: 10px;
+}
+.f-button{
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid grey;
+    width: 150px;
+    height: 30px;
+    color: #1f1f1fef;
+    margin-left: 30%;
+    
+}
+.f-button:hover{
+    cursor: pointer;
+}
+.company-name-form p{
+    margin-bottom: 1px;
+    margin-left: 15px;
+}
+
 
 
 /*  Dash    ___________________________*/
@@ -707,6 +742,9 @@ hr{
         display: none;
     }
     #profile{
+        display: none;
+    }
+    .settings-back{
         display: none;
     }
     #searchbar{
