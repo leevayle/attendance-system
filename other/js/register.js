@@ -2,6 +2,7 @@
 const password = document.getElementById('password');
 const myValue1 = localStorage.getItem('profileUrl');
 
+
 // displaying the profile pic
 if (myValue1 === null || myValue1 === undefined) {
     document.getElementById('user-profile').src = "images/ser.png";
@@ -54,6 +55,6 @@ document.getElementById('nav-clock-in').addEventListener('click', ()=>{
 document.getElementById('nav-dashboard').addEventListener('click', ()=>{
     Loading();
     setTimeout(()=>{
-        window.location.href="dash.html";
+        window.location.href="fetch.php";
     },950);
 });

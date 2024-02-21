@@ -171,8 +171,8 @@ a{text-decoration: none;}
 
 /*  settings ____________________-   */
 .settings-back{
-    width: 400px;
-    height: 90%;
+    width: 360px;
+    height: 80%;
     border-radius: 20px;
     background-color: #f4f8fff8;
     opacity: 1;
@@ -266,12 +266,13 @@ a{text-decoration: none;}
 }
 .company-name-form input{
     background-color: #ffffff;
-    height: 20px;
+    height: 25px;
     border: 1px solid rgb(204, 204, 204);
     border-radius: 5px;
     text-align: center;
     width: 300px;
     margin-left: 10px;
+    font-size: auto;
 }
 .f-button{
     background-color: #ffffff;
@@ -362,7 +363,7 @@ a{text-decoration: none;}
     top: 6px;
 }
 #profile{
-    width: 15%;
+    width: 17%;
     position: absolute;
     right: 10px;
     background: transparent;
@@ -370,7 +371,7 @@ a{text-decoration: none;}
     display: flex;
 }
 .top-profile{
-    margin-left: 20%;
+    margin:auto;
     height: 35px;
     width: 35px;
     border-radius: 50%;
@@ -386,6 +387,7 @@ a{text-decoration: none;}
 }
 .notification-top{
     width: 70%;
+    max-width: 23px;
     height: 70%;
     margin: auto;
     margin-top: 15%;

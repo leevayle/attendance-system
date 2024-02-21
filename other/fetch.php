@@ -27,13 +27,37 @@
             localStorage.setItem("company", "' . $companyRow['name'] . '");
             localStorage.setItem("in-time", "' . $companyRow['work_in_time'] . '");
             localStorage.setItem("out-time", "' . $companyRow['work_out_time'] . '");
-            window.location.href="dash.html";
-        </script>';
-    } else {
-        echo '<script>
-            window.location.href="dash.html";
         </script>';
     }
+    
+    // Query to count total rows in biodata table
+    $countBiodataQuery = "SELECT COUNT(*) AS total FROM biodata";
+    $countResult = $conn->query($countBiodataQuery);
+    
+    if ($countResult->num_rows > 0) {
+        $countRow = $countResult->fetch_assoc();
+        // Store total rows count in local storage
+        echo '<script>
+            localStorage.setItem("totalreg", ' . $countRow['total'] . ');
+        </script>';
+    }
+    
+    // Query to count total enrolled users
+    $countEnrolledQuery = "SELECT COUNT(*) AS totalEnrolled FROM biodata WHERE enrolled = 'yes'";
+    $enrolledResult = $conn->query($countEnrolledQuery);
+    
+    if ($enrolledResult->num_rows > 0) {
+        $enrolledRow = $enrolledResult->fetch_assoc();
+        // Store total enrolled users count in local storage
+        echo '<script>
+            localStorage.setItem("totalenrolled", ' . $enrolledRow['totalEnrolled'] . ');
+        </script>';
+    }
+    
+    // Redirect to dash.html
+    echo '<script>
+        window.location.href="dash.html";
+    </script>';
     
     // Close connection
     $conn->close();

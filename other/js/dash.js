@@ -2,6 +2,8 @@
 // Prevent right
 document.getElementById('usernamedash').innerHTML = localStorage.getItem("user");
 document.getElementById('company-name').innerHTML = localStorage.getItem("company");
+document.getElementById('totalreg').textContent = localStorage.getItem("totalreg");
+document.getElementById('totalenrolled').textContent = localStorage.getItem("totalenrolled");
 
 
 document.getElementById('p1').addEventListener('contextmenu',(event)=>{event.preventDefault()});
@@ -19,7 +21,7 @@ document.getElementById('apply-filters').addEventListener('click',()=>{
 
 
 //navigation actions...both pc and mobile
-const dash = "dash.html";
+const dash = "fetch.php";
 const clockin = "clock-in.html";
 const reports = "reports.html";
 const clockout = "clock-out.html";
@@ -101,6 +103,17 @@ document.getElementById('notificationsbtn').addEventListener('click', ()=>{
         info.style.display = "block";
         showNotif();
     }, 30);
+});
+document.getElementById('refreshbtn').addEventListener('click', ()=>{
+    setTimeout(()=>{
+    
+        successtext.textContent = "Refreshing dahboard";
+        success.style.display = "block";
+        showNotif();
+    }, 30);
+    setTimeout(()=>{
+        window.location.href = dash;
+    },1000);
 });
 
 // settings btn
