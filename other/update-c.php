@@ -18,13 +18,13 @@ function updateCompanyName($conn, $companyName) {
     $sql = "UPDATE company SET name = '$companyName' WHERE ref = '1'";
     if ($conn->query($sql) === TRUE) {
         echo '<script>
-        window.location.href="./dash.html";
+        window.location.href="./fetch.php";
          
       </script>';
       
     } else {
         echo '<script>
-        window.location.href="./dash.html";
+        window.location.href="./fetch.php";
          
       </script>';
     }

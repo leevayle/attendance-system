@@ -192,7 +192,7 @@
                             localStorage.setItem("lName", "' . $lName . '");
     
                             setTimeout(()=>{
-                                window.location.href="' . ($row['role'] === 'admin' || $row['role'] === 'superadmin' ? 'dash.html' : 'dash-u.html') . '";
+                                window.location.href="' . ($row['role'] === 'admin' || $row['role'] === 'superadmin' ? 'fetch.php' : 'dash-u.html') . '";
                             }, 3000);
     
                             

@@ -1,6 +1,7 @@
 // leevayle@protonmail.com
 // Prevent right
 document.getElementById('usernamedash').innerHTML = localStorage.getItem("user");
+document.getElementById('company-name').innerHTML = localStorage.getItem("company");
 
 
 document.getElementById('p1').addEventListener('contextmenu',(event)=>{event.preventDefault()});
