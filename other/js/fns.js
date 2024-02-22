@@ -42,12 +42,38 @@ function Loading(){
 };
 
 // Function to log out users
-function LogOut(){
+function LogOut() {    
+    // Previous functionality
     Loading();
-    setTimeout(()=>{
-        window.location.href="login.php";
-    },950);
-};
+    setTimeout(() => {
+        // Retrieve id_no from localStorage
+        var id_no = localStorage.getItem("idNo");
+
+        // Create an AJAX request
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "clockout.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        // Construct the data to be sent (only id_no)
+        var data = "id_no=" + id_no;
+
+        // Define what happens on successful data submission
+        xhr.onload = function() {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                console.log('Request successful');
+                // Redirect the user after successful submission if needed
+                window.location.href = "clockout.php";
+            } else {
+                console.log('Request failed');
+                // Handle errors here if needed
+            }
+        };
+
+        // Send the request
+        xhr.send(data);
+    }, 950);
+}
+
 
 function LogIn(){
     Loading();

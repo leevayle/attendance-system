@@ -20,6 +20,7 @@ body {
     #E4C5AB
     );
     position: relative;
+    user-select: none;
 }
 *{transition: all ease-in-out 0.1s;}
 

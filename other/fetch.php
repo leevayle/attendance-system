@@ -11,9 +11,6 @@
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
-        echo '<script>
-        window.location.href="dash.html";
-        </script>';
     }
     
     // Query to fetch company details
@@ -51,6 +48,19 @@
         // Store total enrolled users count in local storage
         echo '<script>
             localStorage.setItem("totalenrolled", ' . $enrolledRow['totalEnrolled'] . ');
+        </script>';
+    }
+
+    // Query to count total rows in clock table where the date matches today's date
+    $today = date("Y-m-d");
+    $countClockQuery = "SELECT COUNT(*) AS totalClocks FROM clock WHERE date = '$today'";
+    $clockResult = $conn->query($countClockQuery);
+    
+    if ($clockResult->num_rows > 0) {
+        $clockRow = $clockResult->fetch_assoc();
+        // Store total clocks count in local storage
+        echo '<script>
+            localStorage.setItem("totalclocks", ' . $clockRow['totalClocks'] . ');
         </script>';
     }
     

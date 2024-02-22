@@ -12,6 +12,7 @@ body {
     display: flex;
     flex-direction: row;
     background-color: #EBF2FB;
+    user-select: none;
 }
 *{transition: all ease-in-out 0.2s;}
 input:focus{

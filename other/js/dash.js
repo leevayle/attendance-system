@@ -4,6 +4,7 @@ document.getElementById('usernamedash').innerHTML = localStorage.getItem("user")
 document.getElementById('company-name').innerHTML = localStorage.getItem("company");
 document.getElementById('totalreg').textContent = localStorage.getItem("totalreg");
 document.getElementById('totalenrolled').textContent = localStorage.getItem("totalenrolled");
+document.getElementById('totalclocks').textContent = localStorage.getItem("totalclocks");
 
 
 document.getElementById('p1').addEventListener('contextmenu',(event)=>{event.preventDefault()});
