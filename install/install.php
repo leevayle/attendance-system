@@ -102,8 +102,7 @@ try {
         time_in TIME,
         time_out TIME,
         absent ENUM('yes', 'no'),
-        overtime ENUM('yes', 'no'),
-        FOREIGN KEY (id_no) REFERENCES biodata(id_no)
+        overtime ENUM('yes', 'no')
     )";
     if ($conn->query($sql_create_clock) !== TRUE) {
         throw new Exception("Error creating table 'clock': " . $conn->error);

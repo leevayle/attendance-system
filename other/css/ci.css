@@ -157,7 +157,7 @@ html, body {
     padding-top: 0px;    
 }
 
-input{
+input, form{
     display: none;
 }
 
