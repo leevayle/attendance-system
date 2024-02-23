@@ -88,10 +88,13 @@ try {
     }
 
     // Insert into company table with ref value 1
-    $sql_insert_company = "INSERT INTO company (ref) VALUES ('1')";
-    if ($conn->query($sql_insert_company) !== TRUE) {
-        throw new Exception("Error inserting data into 'company' table: " . $conn->error);
-    }
+// Insert into company table with ref value 1 and specified company details
+$sql_insert_company = "INSERT INTO company (ref, name, work_in_time, work_out_time) 
+                      VALUES ('1', 'Sam oyugi solutions.', '08:00:00', '17:00:00')";
+if ($conn->query($sql_insert_company) !== TRUE) {
+    throw new Exception("Error inserting data into 'company' table: " . $conn->error);
+}
+
 
     // Create clock table
     $sql_create_clock = "CREATE TABLE IF NOT EXISTS clock (

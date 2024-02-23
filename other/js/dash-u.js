@@ -22,11 +22,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
 const myValue2 = localStorage.getItem('profileUrl');
 
 
-if (myValue2 === null || myValue2 === undefined) {
+if (myValue2) {
+    document.getElementById('user-profile').src = myValue2;
+} else{
     document.getElementById('user-profile').src = "images/ser.png";
-} else {
-    
-  document.getElementById('user-profile').src = myValue2;
 }
 
 const enrol = localStorage.getItem("enrolled");

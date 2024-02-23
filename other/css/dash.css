@@ -617,7 +617,34 @@ hr{
     border-radius: 10px;
     background-color: #ffffff;
     border: 1px solid rgb(238, 238, 238);
+    overflow: hidden;
+    box-shadow: rgba(149, 157, 165, 0.356) 0px 8px 24px;
 }
+table{
+    border-collapse: collapse;
+    width: 100%;
+    
+}
+td, th {
+    border: 1px solid #dddddd54;
+    border-left: none;
+    padding: 5px 4px 4px 10px;
+    font-family: 'corbel',sans-serif;
+  }
+  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #ebf9fc;
+    color: rgb(0, 15, 155);
+    font-family: 'cocomat',sans-serif;
+  }
+
+  tr:nth-child(even){background-color: #f5feff;}
+  tr:hover {background-color: #d2f2ff;}
+  th:hover {background-color: #a3ffd4;}
+
+
 .graph2{
     width: 30%;
     height: 80%;

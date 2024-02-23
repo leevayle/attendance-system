@@ -42,7 +42,7 @@ function Loading(){
 };
 
 // Function to log out users
-function LogOut() {    
+function LogOut1() {    
     // Previous functionality
     Loading();
     setTimeout(() => {
@@ -72,6 +72,14 @@ function LogOut() {
         // Send the request
         xhr.send(data);
     }, 950);
+}
+
+function LogOut(){
+    Loading();
+    
+    setTimeout(()=>{
+        window.location.href = "login.php";
+    },950);
 }
 
 

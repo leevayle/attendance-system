@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/register.css" id="stylesheet">
 
     <link rel="icon" href="images/favicon.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -172,7 +173,7 @@
                     <!-- Search Form -->
                     <form id="s-form" class="flex full" method="POST">
                         <div class="search">
-                            <input type="search" class="search-input" placeholder="Search ID no">
+                            <input type="search" class="search-input" placeholder="Search ID no" name="search" id="search">
                         </div>
                         <div  class="search-btn" id="s-submit">
                             <div class="sb"><img src="images/icons/search.png" class="icon"></div>
@@ -204,12 +205,25 @@
                     </div>
                 </div>
                 <div class="search-bar" id="profile">
-                    <div class="top-profile">
-                        <div class="notification-top">
-                            <img class="icon" src="images/icons/bell.png">
-                        </div>
-                        
-                    </div>
+                            <div class="top-profile" id="update-user">
+                                <div class="notification-top">
+                                    <img class="icon" src="images/icons/refresh2.png" title="Update details">
+                                </div>
+                                
+                            </div>
+                            <div class="top-profile" id="update-password">
+                                <div class="notification-top">
+                                    <img class="icon" src="images/icons/password.png" title="Update password">
+                                </div>
+                                
+                            </div>
+                            <div class="top-profile" id="delete-user">
+                                <div class="notification-top">
+                                    <img class="icon" src="images/icons/delete.png" title="Delete employee">
+                                </div>
+                                
+                            </div>
+                            
                 </div>
             </div>
 
@@ -233,13 +247,13 @@
                                         <div class="form-title">   </div>
                                         <div class="input-holder2">
                                             <input id="fname" type="text" placeholder="First name" name="f_name" required>
-                                            <input type="text" placeholder="Last name" name="l_name" required>
+                                            <input type="text" placeholder="Last name" name="l_name" required id="lname">
                                         </div>
                                         <div class="input-holder1">
-                                            <input type="text" placeholder="Email" class="ione" name="email" required>
+                                            <input type="text" placeholder="Email" class="ione" name="email" required id="email">
                                         </div>
                                         <div class="input-holder1">
-                                            <input type="text" placeholder="ID no" class="ione" name="id_no" required>
+                                            <input type="text" placeholder="ID no" class="ione" name="id_no" required id="idnumber">
                                         </div>
                                         <div class="input-holder2">
                                             <select required name="gender">
@@ -398,6 +412,67 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
+
+<script>
+   $(document).ready(function(){
+    $('#s-submit').on('click', function(){
+        var id_no = $('#search').val();
+        $.ajax({
+            url: 'search.php',
+            method: 'POST',
+            data: {id_no: id_no},
+            success: function(response){
+                
+                var data = JSON.parse(response);
+                
+                
+                
+                // Autofill the rest of the form fields with the received data
+                setTimeout(()=>{
+                $('#form input[name="f_name"]').val(data.f_name);
+                $('#form input[name="l_name"]').val(data.l_name);
+                $('#form input[name="email"]').val(data.email);
+                $('#form select[name="gender"]').val(data.gender);
+                $('#form select[name="role"]').val(data.role);
+
+
+if (data.role =="admin") {
+    setTimeout(() => {
+        console.log("User found!");
+        infotext.textContent = "User info found!";
+        info.style.display = "block";
+        showNotif(); 
+    }, 30);
+} else if (data.role =="user"){
+    setTimeout(() => {
+        console.log("User found!");
+        infotext.textContent = "User info found!";
+        info.style.display = "block";
+        showNotif();
+    }, 30);
+    
+}else{
+    setTimeout(() => {
+        console.log("User found not!");
+        warningtext.textContent = "User not found!";
+        warning.style.display = "block";
+        showNotif();
+    }, 30);
+}
+}, 300);
+                
+                
+                
+                
+            },
+            error: function(xhr, status, error) {
+                
+                console.log("Error: " + error);
+            }
+        });
+    });
+});
+</script>
 
 </body>
 

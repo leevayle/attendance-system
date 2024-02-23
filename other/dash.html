@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="css/notifications.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="icon" href="images/favicon.png">
+    
+
 </head>
 <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!--    BLUR BACK LOADING   -->
 <div class="blur-back-100" id="blur-back-100">
@@ -191,7 +194,7 @@
                             <div class="tile-title">Register employee</div>
                         </div>                    
                     </a>
-                    <a href="#enroll-employee">
+                    <a href="#enroll-employee" style="opacity: 0.5;">
                         <div class="tiles" title="enroll employee">
                             <div class="tile-icon"><img class="icon" src="images/enroll.png"></div>
                             <div class="tile-title">Enroll employee</div>
@@ -199,8 +202,8 @@
                     </a>
 
                     <!--    Nav profile -->
-                    <div class="profile-nav" title="Click to log out">
-                        <div class="profile-nav-pic" onclick="LogOut()">
+                    <div class="profile-nav" >
+                        <div class="profile-nav-pic" onclick="LogOut()" title="Click to log out">
                             <img id="user-profile" class="icon" src="images/profile.png">
                         </div>
                         <div class="profile-nav-caption">
@@ -382,8 +385,8 @@
                             </div>
 
                             <div class="graphs-dash">
-                                <div class="graph1">
-
+                                <div class="graph1" id="graph1">
+                                    
                                 </div>
                                 <div class="graph2">
 
@@ -396,7 +399,41 @@
             </div>
         </div>
         
-    
+    <script>
+        $(document).ready(function() {
+    $.ajax({
+        url: 'table1.php',
+        method: 'GET',
+        dataType: 'json',
+        success: function(response) {
+            // Create the table
+            var table = '<table>';
+            table += '<tr><th>ID Number</th><th>First Name</th><th>Last Name</th><th>Time In</th><th>Time Out</th></tr>';
+            
+            // Populate the table with fetched entries
+            for (var i = 0; i < response.length; i++) {
+                table += '<tr>';
+                table += '<td>' + response[i].id_no + '</td>';
+                table += '<td>' + response[i].fname + '</td>';
+                table += '<td>' + response[i].lname + '</td>';
+                table += '<td>' + response[i].time_in + '</td>';
+                table += '<td>' + response[i].time_out + '</td>';
+                table += '</tr>';
+            }
+            
+            table += '</table>';
+            
+            // Append the table to the entriesTable div
+            $('#graph1').html(table);
+        },
+        error: function(xhr, status, error) {
+            // Handle errors
+            console.error("Error fetching entries: " + error);
+        }
+    });
+});
+
+    </script>
 </body>
 
 <script src="js/notifications.js" defer></script>
