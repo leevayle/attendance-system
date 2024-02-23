@@ -610,6 +610,7 @@ hr{
     border: 1px solid rgba(255, 0, 0, 0);
 }
 .graph1{
+    padding: 5px;
     width: 59%;
     height: 80%;
     margin-top: 20px;
@@ -618,15 +619,14 @@ hr{
     background-color: #ffffff;
     border: 1px solid rgb(238, 238, 238);
     overflow: hidden;
-    box-shadow: rgba(149, 157, 165, 0.356) 0px 8px 24px;
+    box-shadow: rgba(149, 157, 165, 0.256) 0px 2px 10px;
 }
 table{
     border-collapse: collapse;
     width: 100%;
-    
 }
 td, th {
-    border: 1px solid #dddddd54;
+    border: 1px solid #dddddd00;
     border-left: none;
     padding: 5px 4px 4px 10px;
     font-family: 'corbel',sans-serif;
@@ -641,8 +641,7 @@ td, th {
   }
 
   tr:nth-child(even){background-color: #f5feff;}
-  tr:hover {background-color: #d2f2ff;}
-  th:hover {background-color: #a3ffd4;}
+  tr:hover {background-color: #f0f0f0;}
 
 
 .graph2{
