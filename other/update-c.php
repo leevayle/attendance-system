@@ -10,6 +10,10 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     echo "Error: Database connection failed";
+    echo '<script>
+    window.location.href="./fetch.php";
+     
+  </script>';
     exit();
 }
 
@@ -34,9 +38,16 @@ function updateCompanyName($conn, $companyName) {
 function updateClockInTime($conn, $clockInTime) {
     $sql = "UPDATE company SET work_in_time = '$clockInTime' WHERE ref = '1'";
     if ($conn->query($sql) === TRUE) {
-        echo "Clock in time updated successfully";
+        echo '<script>
+        window.location.href="./fetch.php";
+         
+      </script>';
     } else {
         echo "Error updating clock in time: " . $conn->error;
+        echo '<script>
+        window.location.href="./fetch.php";
+         
+      </script>';
     }
 }
 
@@ -44,9 +55,16 @@ function updateClockInTime($conn, $clockInTime) {
 function updateClockOutTime($conn, $clockOutTime) {
     $sql = "UPDATE company SET work_out_time = '$clockOutTime' WHERE ref = '1'";
     if ($conn->query($sql) === TRUE) {
-        echo "Clock out time updated successfully";
+        echo '<script>
+        window.location.href="./fetch.php";
+         
+      </script>';
     } else {
         echo "Error updating clock out time: " . $conn->error;
+        echo '<script>
+        window.location.href="./fetch.php";
+         
+      </script>';
     }
 }
 

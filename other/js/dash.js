@@ -5,6 +5,8 @@ document.getElementById('company-name').innerHTML = localStorage.getItem("compan
 document.getElementById('totalreg').textContent = localStorage.getItem("totalreg");
 document.getElementById('totalenrolled').textContent = localStorage.getItem("totalenrolled");
 document.getElementById('totalclocks').textContent = localStorage.getItem("totalclocks");
+document.getElementById('totallate').textContent = localStorage.getItem("totallate");
+document.getElementById('totalontime').textContent = localStorage.getItem("totalontime");
 
 
 document.getElementById('p1').addEventListener('contextmenu',(event)=>{event.preventDefault()});
