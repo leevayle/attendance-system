@@ -265,7 +265,7 @@
             </div>
 
             <div class="filter-main filter-main-reports">
-                <div class="app-title" id="apptitle">Attendance System - Register new</div>
+                <div class="app-title" id="apptitle">Attendance System - Registry</div>
             </div>
 
         </div>

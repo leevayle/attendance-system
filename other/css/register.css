@@ -103,7 +103,7 @@ input:focus{
 }
 .search-btn:hover{
     cursor: pointer;
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(219, 234, 255);
 }
 .flex{
     display: flex;
