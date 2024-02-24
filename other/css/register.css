@@ -13,14 +13,15 @@
     box-shadow: rgba(87, 87, 87, 0) 0px 1px 15px;
 }
 .form-title{
-    width: 50%;
+    width: 90%;
     height: auto;
     margin-left: 20px;
     margin-top: 20px;
     margin: auto;
     font-family: 'cocomat',sans-serif;
-    font-size: x-large;
-    color: rgb(70, 70, 70);
+    font-size:medium;
+    text-align: center;
+    color: rgb(255, 174, 68);
 }
 .left1{
     width: 50%;
@@ -41,8 +42,9 @@
 }
 input:focus{
     outline: none;
-    font-weight: bold;
+    border: 1px solid blue;
     color: rgb(11, 0, 59);
+    box-shadow: rgba(74, 158, 253, 0.11) 0px 1px 15px;
 }
 .input-holder2 input,select{
     margin: auto;

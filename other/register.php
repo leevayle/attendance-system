@@ -184,9 +184,38 @@
                         document.getElementById("s-form").addEventListener("submit", function(event) {
                         event.preventDefault();
                         
-                     });                    
+                     });    
+                     document.getElementById('s-submit').addEventListener('click', function() {
+                        var searchValue = document.getElementById('search').value;
+                        document.getElementById('idnumber').value = searchValue;
+                        });
+
                      
-                    </script>    
+                    </script>  
+                    <!--    clear table by pressing ctrl+x -->
+            <script>
+                // Function to clear the form fields
+                function clearForm() {
+                    document.getElementById('fname').value = '';
+                    document.getElementById('lname').value = '';
+                    document.getElementById('email').value = '';
+                    document.getElementById('idnumber').value = '';
+                    document.getElementById('role').selectedIndex = 0; // Reset role dropdown to first option
+                    document.getElementById('password').value = '';
+                    document.getElementById('checkbox').checked = true; // Reset checkbox
+                    document.getElementById('profile_picture').value = ''; // Reset file input
+                }
+
+                // Event listener for keydown event
+                document.addEventListener('keydown', function(event) {
+                    // Check if Ctrl key and 'X' key are pressed simultaneously
+                    if (event.ctrlKey && event.key === 'x') {
+                        // Clear the form fields
+                        clearForm();
+                    }
+                });
+            </script>
+  
                         
                 
                     <div class="phone-nav">
@@ -213,9 +242,9 @@
                     </div>
                 </div>
                 <div class="search-bar" id="profile">
-                            <div class="top-profile" id="update-user">
+                            <div class="top-profile" id="updateRole">
                                 <div class="notification-top">
-                                    <img class="icon" src="images/icons/refresh2.png" title="Update details">
+                                    <img class="icon" src="images/icons/refresh2.png" title="Update role">
                                 </div>
                                 
                             </div>
@@ -252,7 +281,7 @@
                                 <!-- Register Form -->
                                 <form class="full" method="post" enctype="multipart/form-data" id="form">
                                     <div class="left1">
-                                        <div class="form-title">   </div>
+                                        <div class="form-title">  Use <b>Ctrl+x</b> to clear the form </div>
                                         <div class="input-holder2">
                                             <input id="fname" type="text" placeholder="First name" name="f_name" required>
                                             <input type="text" placeholder="Last name" name="l_name" required id="lname">
@@ -265,13 +294,13 @@
                                         </div>
                                         <div class="input-holder2">
                                             <select required name="gender">
-                                                <option>Male</option>
-                                                <option>Female</option>
-                                                <option>Other</option>
+                                                <option value="male">Male</option>
+                                                <option value="female">Female</option>
+                                                <option value="other">Other</option>
                                             </select>   
-                                            <select required name="role">
-                                                <option>Admin</option>
-                                                <option>User</option>
+                                            <select required name="role" id="role">
+                                                <option value="admin">Admin</option>
+                                                <option value="user">User</option>
                                             </select>
                                         </div>
                                         <div class="input-holder2">
@@ -467,14 +496,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             warningtext.textContent = "User not found!";
             warning.style.display = "block";
             showNotif();
-        }, 30);
-    }
-    }, 300);
+                }, 30);
+            }
+            }, 300);                 
                     
-                    
-                    
-                    
-                },
+        },
                 error: function(xhr, status, error) {
                     
                     console.log("Error: " + error);
@@ -600,6 +626,68 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             });
         });
 
+
+</script>
+
+<!--    SCRIPT FOR UPDATING ROLE AND PROFILE -->
+<script>
+    $(document).ready(function() {
+    $('#updateRole').on('click', function() {
+        var idNo = $('#search').val();
+        var role = $('select[name="role"]').val();
+
+        // Check if ID number and role are not empty
+        if (idNo.trim() !== '' && role.trim() !== '') {
+            // Send AJAX request to update_role.php
+            $.ajax({
+                url: 'update_role.php',
+                method: 'POST',
+                data: {
+                    id_no: idNo,
+                    role: role
+                },
+                
+                success: function(response) {
+                    // Check if role was updated successfully
+                    if (response.status === 'success') {
+                        console.log('Role updated successfully.');
+                        setTimeout(() => {
+                            successtext.textContent = "User role updated successfully!";
+                            success.style.display = "block";
+                            showNotif();
+                        }, 30);
+                    } else {
+                        console.error('Failed to update role:', response.message);
+                        // Display error message
+                        setTimeout(() => {
+                            errortext.textContent = "Failed to update role";
+                            error.style.display = "block";
+                            showNotif();
+                        }, 30);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    // Handle error response
+                    console.error('Error updating role:', error);
+                    // Display error message
+                    setTimeout(() => {
+                        errortext.textContent = "An error occurred while updating role.";
+                        error.style.display = "block";
+                        showNotif();
+                    }, 30);
+                }
+            });
+        } else {
+            // Handle case where ID number or role is empty
+            console.log('Please enter ID number and select a role.');
+                        setTimeout(() => {
+                        errortext.textContent = "Kindly input the id number";
+                        error.style.display = "block";
+                        showNotif();
+                    }, 30);
+        }
+    });
+    });
 
 </script>
 
