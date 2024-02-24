@@ -149,7 +149,7 @@
                 <!--    Nav profile -->
                 <div class="profile-nav">
                     <div class="profile-nav-pic" title="Click to log out" onclick="LogOut()">
-                        <img id="user-profile" class="icon" src="images/profile.png">
+                        <img id="user-profile" class="icon" src="">
                     </div>
                     <div class="profile-nav-caption">
                             <p id="usernamedash">Admin</p>
@@ -618,7 +618,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     
                     console.log('Please enter ID number and password.');
                                 setTimeout(()=>{
-                                warningtext.textContent = "Enter Id number in the search box";
+                                warningtext.textContent = "Both Id and password are required";
                                 warning.style.display = "block";
                                 showNotif();
                                 }, 30);

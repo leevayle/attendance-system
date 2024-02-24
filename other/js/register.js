@@ -4,11 +4,10 @@ const myValue1 = localStorage.getItem('profileUrl');
 
 
 // displaying the profile pic
-if (myValue1 === null || myValue1 === undefined) {
+if (myValue1){
+    document.getElementById('user-profile').src = myValue1;
+}else{
     document.getElementById('user-profile').src = "images/ser.png";
-} else {
-
-  document.getElementById('user-profile').src = myValue1;
 }
 
 // password peek

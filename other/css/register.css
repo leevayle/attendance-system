@@ -115,6 +115,11 @@ input:focus{
     margin: auto;
 }
 
+@media screen and (max-width:1024px){
+    .main-center{
+        width: 100%;
+    }
+}
 @media screen and (max-width:450px){
     #s-form{
         display: none;

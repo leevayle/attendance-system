@@ -32,12 +32,10 @@ const register = "register.php";
 
 
 const myValue = localStorage.getItem('profileUrl');
-
-if (myValue === null || myValue === undefined) {
+if (myValue){
+    document.getElementById('user-profile').src = myValue;
+}else{
     document.getElementById('user-profile').src = "images/ser.png";
-} else {
-
-  document.getElementById('user-profile').src = myValue;
 }
 
 

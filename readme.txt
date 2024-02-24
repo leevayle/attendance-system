@@ -19,7 +19,7 @@ GENERAL INSTRUCTIONS
 - You'll be redirected to the signup page where you can enter the admin details and save. you can now go back and log in.
 
 - ALTERNATIVELY, you can use this username and password to log in and register a new admin after logging in. 
-    NOTE THAT this will only work if it's the first log in.
+    NOTE THAT this will only work until you register an admin.
         Username : admin
         Password : admin
 

@@ -1,5 +1,10 @@
 // leevayle@protonmail.com
-
+const myValue2 = localStorage.getItem('profileUrl');
+if (myValue2){
+    document.getElementById('user-profile').src = myValue2;
+}else{
+    document.getElementById('user-profile').src = "images/ser.png";
+}
 
 //navigation actions...clock out for reports page
 document.getElementById('reports-clock-out-phone').addEventListener('click', ()=>{
