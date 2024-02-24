@@ -179,7 +179,7 @@
                             <div class="sb"><img src="images/icons/search.png" class="icon"></div>
                         </div>
                     </form>
-                    
+
                     <script>                        
                         document.getElementById("s-form").addEventListener("submit", function(event) {
                         event.preventDefault();
@@ -219,7 +219,7 @@
                                 </div>
                                 
                             </div>
-                            <div class="top-profile" id="update-password">
+                            <div class="top-profile" id="updatePassword">
                                 <div class="notification-top">
                                     <img class="icon" src="images/icons/password.png" title="Update password">
                                 </div>
@@ -544,59 +544,62 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!--    SCRIPT FOR UPDATING PASSWORD -->
 <script>
-    $(document).ready(function() {
-    $('#updatepassword').on('click', function() {
-        var idNo = $('#search').val();
+        $(document).ready(function() {
+            $('#updatePassword').on('click', function() {
+                var idNo = $('#search').val();
+                var password = $('#password').val();
 
-        // Check if ID number is not empty
-        if (idNo.trim() !== '') {
-            // Send AJAX request to delete.php
-            $.ajax({
-                url: 'delete.php',
-                method: 'POST',
-                data: { id_no: idNo },
-                success: function(response) {
-                    // Check the status of the response
-                    if (response.status === 'success') {
-                        setTimeout(()=>{
-                        successtext.textContent = "User Deleted successfully!";
-                        success.style.display = "block";
-                        showNotif();
-                        }, 30);
-                        console.log('User deleted successfully.');
-                        
-                    } else {
-                        setTimeout(()=>{
-                        errortext.textContent = "An error occured";
-                        error.style.display = "block";
-                        showNotif();
-                        }, 30);
-                        console.error('Error deleting user:', response.message);
-                        
-                    }
-                    // Check if there is a profile picture message in the response
-                    if (response.profile_picture_message) {
-                        console.log(response.profile_picture_message);
-                        
-                    }
-                },
-                error: function(xhr, status, error) {
-                    // Handle error response here
-                    console.error('Error deleting user:', error);
+                // Check if ID number and password are not empty
+                if (idNo.trim() !== '' && password.trim() !== '') {
+                    // Send AJAX request to update_password.php
+                    $.ajax({
+                        url: 'update_p.php',
+                        method: 'POST',
+                        data: {
+                            id_no: idNo,
+                            password: password
+                        },
+                        success: function(response) {
+                            // Check if password was updated successfully
+                            if (response.status === 'success') {
+                                console.log('Password updated successfully.');
+                                setTimeout(()=>{
+                                successtext.textContent = "Password updated successfully!";
+                                success.style.display = "block";
+                                showNotif();
+                                }, 30);
+                            } else {
+                                console.error('Failed to update password:', response.message);
+                                setTimeout(()=>{
+                                errortext.textContent = "Failed to update password";
+                                error.style.display = "block";
+                                showNotif();
+                                }, 30);
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            
+                            console.error('Error updating password:', error);
+                            setTimeout(()=>{
+                                errortext.textContent = "Error updating password";
+                                error.style.display = "block";
+                                showNotif();
+                                }, 30);
+                            
+                        }
+                    });
+                } else {
                     
-                    }
+                    console.log('Please enter ID number and password.');
+                                setTimeout(()=>{
+                                warningtext.textContent = "Enter Id number in the search box";
+                                warning.style.display = "block";
+                                showNotif();
+                                }, 30);
+                }
             });
-        } else {
-            
-            console.log('Please enter ID number.');
-            setTimeout(()=>{
-                        errortext.textContent = "Please enter id no";
-                        error.style.display = "block";
-                        showNotif();
-                        }, 30);
-        }
         });
-    });
+
 
 </script>
 

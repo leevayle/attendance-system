@@ -49,6 +49,7 @@ input:focus{
     height: 25px;
     width: 45%;
     text-align: center;
+    color: rgb(0, 0, 199);
 }
 .input-holder1{
     width: 90%;

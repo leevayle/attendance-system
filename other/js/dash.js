@@ -128,12 +128,3 @@ document.getElementById('settingsbtn').addEventListener('click', ()=>{
 document.getElementById('settings-close').addEventListener('click', ()=>{
      set.style.right = '-500px';
 });
-
-
-
-document.getElementById('clock-out-phone-reports').addEventListener('click', ()=>{
-    Loading();
-    setTimeout(()=>{
-        window.location.href = clockout;
-    },950);
-});
