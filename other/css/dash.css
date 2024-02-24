@@ -15,6 +15,11 @@ body {
     user-select: none;
 }
 *{transition: all ease-in-out 0.2s;}
+
+#enrollemployee{
+    opacity: 0.5;
+}
+
 input:focus{
     outline: none;
 }
@@ -116,6 +121,8 @@ select:focus{
     font-size: 15px;
 }
 a{text-decoration: none;}
+
+
 
 .profile-nav{
     width: 90%;
