@@ -6,11 +6,8 @@ if (isset($_POST['id_no'], $_POST['role'])) {
     $id_no = $_POST['id_no'];
     $role = $_POST['role'];
 
-    // Connect to the database
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "attendancesystemapp001";
+    
+require_once('conn.php');
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     // Check database connection

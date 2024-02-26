@@ -38,6 +38,22 @@ if (myValue){
     document.getElementById('user-profile').src = "images/ser.png";
 }
 
+// Get references to the textboxes
+const searchInput1 = document.getElementById('search2');
+const searchInput2 = document.getElementById('search-dash-top');
+
+// Add event listeners for focus events
+searchInput1.addEventListener('focus', () => {
+    // Clear the value of the second textbox
+    searchInput2.value = '';
+});
+
+searchInput2.addEventListener('focus', () => {
+    // Clear the value of the first textbox
+    searchInput1.value = '';
+});
+
+
 
 document.getElementById('register').addEventListener('click', ()=>{
     Loading();

@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/notifications.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/reports.css" id="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
     <link rel="icon" href="images/favicon.png">
 </head>
@@ -193,7 +195,19 @@
                             </div>
                         </div>
                         <div class="search-bar" id="profile">
-                            <div class="top-profile">
+                            <div class="top-profile" title="apply filters">
+                                <div class="notification-top">
+                                    <img class="icon" src="images/icons/filter.png">
+                                </div>
+                                
+                            </div>
+                            <div class="top-profile" title="remove filters" id="disablefilters">
+                                <div class="notification-top">
+                                    <img class="icon" src="images/icons/remove filters.png">
+                                </div>
+                                
+                            </div>
+                            <div class="top-profile" title="print" id="printtable" onclick="printTable()">
                                 <div class="notification-top">
                                     <img class="icon" src="images/icons/8666754_printer_print_icon.png">
                                 </div>
@@ -209,23 +223,17 @@
                             <!--Filters section______________________________________-->
                             <div class="filter-cont filter-reports">
                                 
-                                <input type="date" id="date"  class="filter-date filter-date-reports" style="padding-top: 0px;padding-bottom: 0px;">
+                                <input type="date" id="date-from"  class="filter-date filter-date-reports" style="padding-top: 0px;padding-bottom: 0px;" title="From">
+                                <input type="date" id="date-to"  class="filter-date filter-date-reports" style="padding-top: 0px;padding-bottom: 0px;" title="to">
                                 
                                 
-                                <select class="filter-date" id="dpt">
-                                    <option>Role</option>
-                                    <option id="dpt-option1">Admins</option>
-                                    <option id="dpt-option1">Users</option>
-                                </select>
+                                <input type="text" class="filter-date filter-date-reports" placeholder="filter by id no" id="id-no-filter" style="height: 25px;text-align: center;">
                                 
-                                <select class="filter-date">
+                                <select class="filter-date" id="early-late-filter">
                                     <option>Time filter</option>
-                                    <option>Early check in</option>
-                                    <option>Late check in</option>
-                                    <option>Absent</option>
+                                    <option value="early">Early check in</option>
+                                    <option value="late">Late check in</option>
                                 </select>  
-                                <div class="print hidden" title="Click to print"><img class="icon" src="images/print.png"></div>
-                                <div id="apply-filters" title="Click to apply filters">Print</div>         
                                 
                             </div>
 
@@ -243,7 +251,7 @@
                         <div class="dashboard-main">                   
                             
 
-                            <div class="graphs-dash graph-cont">
+                            <div class="graphs-dash graph-cont" id="graph1-cont">
                                 <div class="graph1 " id="graph1">
 
                                 </div>

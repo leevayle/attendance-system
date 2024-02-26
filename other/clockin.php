@@ -3,10 +3,7 @@
 
 date_default_timezone_set('Africa/Nairobi');
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "attendancesystemapp001";
+require_once('conn.php');
 
 // Connection to MySQL server
 $conn = new mysqli($servername, $username, $password, $dbname);

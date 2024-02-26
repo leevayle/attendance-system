@@ -203,7 +203,7 @@
                     document.getElementById('role').selectedIndex = 0; // Reset role dropdown to first option
                     document.getElementById('password').value = '';
                     document.getElementById('checkbox').checked = true; // Reset checkbox
-                    document.getElementById('profile_picture').value = ''; // Reset file input
+                    document.getElementById('profile_picture').value = ''; // Reset file input                
                 }
 
                 // Event listener for keydown event
@@ -299,8 +299,8 @@
                                                 <option value="other">Other</option>
                                             </select>   
                                             <select required name="role" id="role">
-                                                <option value="admin">Admin</option>
                                                 <option value="user">User</option>
+                                                <option value="admin">Admin</option>
                                             </select>
                                         </div>
                                         <div class="input-holder2">

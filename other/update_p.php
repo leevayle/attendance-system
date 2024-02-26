@@ -8,10 +8,7 @@ if (isset($_POST['id_no'], $_POST['password'])) {
     // Hash the password
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "attendancesystemapp001";
+    require_once('conn.php');
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 

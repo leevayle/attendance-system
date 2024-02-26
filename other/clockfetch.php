@@ -5,11 +5,7 @@ if (isset($_POST['id_no'])) {
     // Retrieve ID number from POST data
     $id_no = $_POST['id_no'];
 
-    // Connect to the database
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "attendancesystemapp001";
+    require_once('conn.php');
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     // Check connection

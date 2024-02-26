@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/notifications.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="icon" href="images/favicon.png">
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </head>
 <body>
@@ -224,6 +224,7 @@
 
                     <div class="search-bar-cont">
                         <div class="search-bar" id="searchbar">
+                            <input type="text" class="search-bar searchbar-top-dash" placeholder="Search Id number" id="search-dash-top">
                             <div class="phone-nav">
                                 <div class="p-nav-element p-nav-active" id="dash-phone">
                                     <div class="p-nav-ico ">
@@ -276,8 +277,9 @@
                         <div class="app-title" id="apptitle">Attendance System - Dashboard</div>
                         
                         <div class="dash-cont">
-                            <!--Filters section______________________________________-->
+                            
                             <div class="filter-cont">
+                                <!--Filters section______________________________________-->
                                 
                                 <input type="date" id="date" class="filter-date" style="padding-top: 0px;padding-bottom: 0px;">
                                 
@@ -385,10 +387,35 @@
                             </div>
 
                             <div class="graphs-dash">
-                                <div class="graph1" id="graph1" title="Latest clock-ins">
+                                <div class="graph1" id="graph1" title="Today's earliest clock-ins">
                                     
                                 </div>
                                 <div class="graph2">
+                                    <div class="s-d-cont">
+                                        <input class="search-dash" type="text" placeholder="search id number" id="search2">
+                                    </div>
+                                    <div class="s-d-details">
+                                        <div class="detals-d-s">
+                                            <div class="top-details">
+                                                <div class="title-d-s" id="id-no">- -</div>
+                                                <div class="tile-title-dash3 id-no-name">Id Number</div>
+                                            </div>
+                                            <div class="top-details">
+                                                <div class="title-d-s" id="timeinlabel">- -</div>
+                                                <div class="tile-title-dash3 id-no-name">Time In</div>
+                                            </div>
+                                        </div>
+                                        <div class="detals-d-s">
+                                            <div class="top-details">
+                                                <div class="title-d-s" id="firstNameLabel">- -</div>
+                                                <div class="tile-title-dash3 id-no-name">Name</div>
+                                            </div>
+                                            <div class="top-details">
+                                                <div class="title-d-s" id="timeOutLabel">- -</div>
+                                                <div class="tile-title-dash3 id-no-name">Time Out</div>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </div>
                             </div>
@@ -398,7 +425,7 @@
                     </div>
             </div>
         </div>
-        
+        <!--SCRIPT FOR UPDATING THE TABLE-->
     <script>
         $(document).ready(function() {
     $.ajax({
@@ -431,6 +458,44 @@
             console.error("Error fetching entries: " + error);
         }
     });
+});
+
+    </script>
+    <!--SCRIPT FOR UPDATING STATUS-->
+    <script>
+        $(document).ready(function() {
+    $('#search2').keypress(function(event) {
+        if (event.keyCode === 13) { // Check if the Enter key was pressed (key code 13)
+            var idNumber = $(this).val(); // Get the value of the textbox
+        console.log(idNumber);
+            sendAjaxRequest(idNumber); // Call a function to send the AJAX request
+        }
+    });
+
+    function sendAjaxRequest(idNumber) {
+        // AJAX request
+        $.ajax({
+            type: 'POST',
+            url: 'search-dash.php',
+            data: {idNumber: idNumber},
+            dataType: 'json',
+            success: function(response) {
+                console.log('Received data:', response);
+                // Handle success
+                $('#id-no').text(response.idNumber);
+                $('#firstNameLabel').text(response.firstName);
+                $('#timeinlabel').text(response.timeIn);
+                $('#timeOutLabel').text(response.timeOut);
+            },
+            error: function(xhr, status, error) {
+                // Handle error
+                var errorMessage = 'An error occurred while processing your request. Please try again later.';
+                warningtext.textContent = errorMessage;
+                warning.style.display = 'block';
+                showNotif();
+            }
+        });
+    }
 });
 
     </script>

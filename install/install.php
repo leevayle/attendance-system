@@ -31,9 +31,7 @@
     <?php
 
 // Database connection parameters
-$servername = "localhost";
-$username = "root";
-$password = "";
+require_once('../other/conn.php');
 
 // Create connection
 $conn = new mysqli($servername, $username, $password);

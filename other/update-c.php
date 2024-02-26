@@ -1,8 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "attendancesystemapp001";
+require_once('conn.php');
 
 
 $conn = new mysqli($servername, $username, $password, $dbname);

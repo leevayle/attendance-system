@@ -14,8 +14,12 @@
     visibility: visible;
 }
 #apply-filters{
-    display: none
+    display: block
 }
+#profile{
+    display: flex;
+}
+
 
 
 @media screen and (max-width:450px) { /*  upto iphone 14 pro-max  */
