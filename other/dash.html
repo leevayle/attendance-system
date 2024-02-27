@@ -461,44 +461,64 @@
 });
 
     </script>
-    <!--SCRIPT FOR UPDATING STATUS-->
+    
+    <!--SCRIPT FOR UPDATING STATUS-->    
     <script>
         $(document).ready(function() {
-    $('#search2').keypress(function(event) {
-        if (event.keyCode === 13) { // Check if the Enter key was pressed (key code 13)
-            var idNumber = $(this).val(); // Get the value of the textbox
-        console.log(idNumber);
-            sendAjaxRequest(idNumber); // Call a function to send the AJAX request
-        }
-    });
-
-    function sendAjaxRequest(idNumber) {
-        // AJAX request
-        $.ajax({
-            type: 'POST',
-            url: 'search-dash.php',
-            data: {idNumber: idNumber},
-            dataType: 'json',
-            success: function(response) {
-                console.log('Received data:', response);
-                // Handle success
-                $('#id-no').text(response.idNumber);
-                $('#firstNameLabel').text(response.firstName);
-                $('#timeinlabel').text(response.timeIn);
-                $('#timeOutLabel').text(response.timeOut);
-            },
-            error: function(xhr, status, error) {
-                // Handle error
-                var errorMessage = 'An error occurred while processing your request. Please try again later.';
-                warningtext.textContent = errorMessage;
-                warning.style.display = 'block';
-                showNotif();
+            $('#search2, #search-dash-top').keypress(function(event) {
+                if (event.keyCode === 13) { // Check if the Enter key was pressed (key code 13)
+                    var idNumber;
+                    // Check which textbox has text
+                    if ($('#search2').val().trim() !== '') {
+                        idNumber = $('#search2').val().trim();
+                    } else if ($('#search-dash-top').val().trim() !== '') {
+                        idNumber = $('#search-dash-top').val().trim();
+                    } else {
+                        // Neither textbox has text, exit function
+                        return;
+                    }
+                    // Call a function to send the AJAX request
+                    sendAjaxRequest(idNumber);
+                }
+            });
+    
+            function sendAjaxRequest(idNumber) {
+                // AJAX request
+                $.ajax({
+                    type: 'POST',
+                    url: 'search-dash.php',
+                    data: { idNumber: idNumber },
+                    dataType: 'json',
+                    success: function(response) {
+                        console.log('Received data:', response);
+                        // Check if the response contains data
+                        if (response.fname !== undefined && response.id_no !== undefined && response.time_in !== undefined && response.time_out !== undefined) {
+                            // Update HTML elements with received data
+                            $('#id-no').text(response.id_no);
+                            $('#firstNameLabel').text(response.fname);
+                            $('#timeinlabel').text(response.time_in);
+                            $('#timeOutLabel').text(response.time_out);
+                        } else {
+                            // Handle case when no data is returned
+                            console.error('Incomplete data received:', response);
+                            errortext.textContent = 'User absent or Id number is invalid';
+                            error.style.display = 'block';
+                            showNotif();
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle error
+                        console.error('Error occurred:', error);
+                        warningtext.textContent = 'An error occurred while processing your request. Please try again later.';
+                        warning.style.display = 'block';
+                        showNotif();
+                    }
+                });
             }
         });
-    }
-});
-
     </script>
+    
+
 </body>
 
 <script src="js/notifications.js" defer></script>

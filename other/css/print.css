@@ -1,3 +1,24 @@
-#graph1, #tablediv{
+body{
+  position: relative;
+}
+table{
+    border-collapse: collapse;
     width: 100%;
 }
+td, th {
+    border: 1px solid #dddddd00;
+    border-left: none;
+    padding: 5px 4px 4px 10px;
+    font-family: 'corbel',sans-serif;
+  }
+  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #ebf9fc;
+    color: rgb(0, 15, 155);
+    font-family: 'cocomat',sans-serif;
+  }
+
+  tr:nth-child(even){background-color: #f5feff;}
+  tr:hover {background-color: #f0f0f0;}

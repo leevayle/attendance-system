@@ -19,6 +19,9 @@
 #profile{
     display: flex;
 }
+#printtablemobile{
+    display: none;
+}
 
 
 
@@ -43,5 +46,11 @@
         right: 38%;
         width: 70px;
         text-align: center;
+    }
+    #printtablemobile{
+        display: block;
+    }
+    #printtable, #disablefilters, #applyfilters{
+        display: none;
     }
 }

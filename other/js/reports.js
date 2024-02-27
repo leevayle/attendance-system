@@ -80,7 +80,6 @@ $(document).ready(function() {
     $('#id-no-filter').on('input', filterTableById);
 });
 
-
  // filter bu time
 $(document).ready(function() {
     var workInTime; // Variable to store the fetched work in time
@@ -160,30 +159,64 @@ $(document).ready(function() {
     });
 });
 document.addEventListener('DOMContentLoaded', ()=>{
-    
+    // just an ingenius way to display data because it flashes and dissapears,, looks like its applying some filters already on load
     setTimeout( ()=>{
         document.getElementById('disablefilters').click();
     },500)
 });
 
-//printing
-document.getElementById('printtable').addEventListener('click', function() {
-    var printWindow = window.open('', '_blank');
-    printWindow.document.write('<html><head><title>Print Table</title><link rel="stylesheet" href="css/dash.css"><link rel="stylesheet" href="print.css"></head><body>');
-    printWindow.document.write('<div id="tablediv">'); // Start printing from this div
-    printWindow.document.write(document.getElementById('graph1').outerHTML); // Print the table
-    printWindow.document.write('</div>'); // End of printing
-    printWindow.document.write('</body></html>');
-    printWindow.document.close();
-    printWindow.print();
+//apply all filters aat once
+document.getElementById('applyfilters').addEventListener('click', ()=>{
+    filterTableByDateRange();
+    filterTableById();
+    filterTableByTime();
 });
 
+//printing
+document.querySelectorAll('#printtable, #printtablemobile').forEach(element => {
+    element.addEventListener('click', function() {
+        // Retrieve company name from localStorage
+        var companyName = localStorage.getItem('company');
+        
+        // Construct the window title
+        var windowTitle = 'Attendance Records: printed by - ' + localStorage.getItem('user') + ' of ' + companyName;
+        
+        // Open a new window
+        var printWindow = window.open('', '_blank');
+        
+        // Build HTML structure and write to print window
+        printWindow.document.write(`
+            <html>
+            <head>
+                <title>${windowTitle}</title>
+                <link rel="stylesheet" href="css/print.css">
+            </head>
+            <body>
+                <div id="tablediv">
+                    ${document.getElementById('graph1').outerHTML}
+                </div>
+                <footer style="text-align: center; font-size: 10px; position: absolute; bottom: 0px; left: 30%;">
+                    This printout is a property of ${companyName}
+                </footer>
+            </body>
+            </html>
+        `);
+        
+        // Set window title
+        printWindow.document.title = windowTitle;
+        
+        // Trigger print after a short delay to ensure content is loaded
+        setTimeout(function() {
+            printWindow.print();
+            printWindow.close(); // Close the print window after printing
+        }, 500); // Adjust the delay as needed
+    });
+});
 
+  
+  
+  
 
-
-    
-    
-    
 
 
 

@@ -195,7 +195,7 @@
                             </div>
                         </div>
                         <div class="search-bar" id="profile">
-                            <div class="top-profile" title="apply filters">
+                            <div class="top-profile" title="apply filters" id="applyfilters">
                                 <div class="notification-top">
                                     <img class="icon" src="images/icons/filter.png">
                                 </div>
@@ -219,9 +219,9 @@
                     <div class="filter-main filter-main-reports">
                         <div class="app-title" id="apptitle">Attendance System - Clock Reports</div>
                         
-                        <div class="dash-cont ">
+                        <div class="dash-cont " style="overflow-x: auto;">
                             <!--Filters section______________________________________-->
-                            <div class="filter-cont filter-reports">
+                            <div class="filter-cont filter-reports" >
                                 
                                 <input type="date" id="date-from"  class="filter-date filter-date-reports" style="padding-top: 0px;padding-bottom: 0px;" title="From">
                                 <input type="date" id="date-to"  class="filter-date filter-date-reports" style="padding-top: 0px;padding-bottom: 0px;" title="to">
@@ -234,6 +234,12 @@
                                     <option value="early">Early check in</option>
                                     <option value="late">Late check in</option>
                                 </select>  
+                                <div class="top-profile" title="print" id="printtablemobile" onclick="printTable()">
+                                    <div class="notification-top">
+                                        <img class="icon" src="images/icons/8666754_printer_print_icon.png">
+                                    </div>
+                                    
+                                </div>
                                 
                             </div>
 
