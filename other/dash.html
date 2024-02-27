@@ -490,7 +490,6 @@
                     data: { idNumber: idNumber },
                     dataType: 'json',
                     success: function(response) {
-                        console.log('Received data:', response);
                         // Check if the response contains data
                         if (response.fname !== undefined && response.id_no !== undefined && response.time_in !== undefined && response.time_out !== undefined) {
                             // Update HTML elements with received data
@@ -500,7 +499,6 @@
                             $('#timeOutLabel').text(response.time_out);
                         } else {
                             // Handle case when no data is returned
-                            console.error('Incomplete data received:', response);
                             errortext.textContent = 'User absent or Id number is invalid';
                             error.style.display = 'block';
                             showNotif();
@@ -508,7 +506,6 @@
                     },
                     error: function(xhr, status, error) {
                         // Handle error
-                        console.error('Error occurred:', error);
                         warningtext.textContent = 'An error occurred while processing your request. Please try again later.';
                         warning.style.display = 'block';
                         showNotif();
