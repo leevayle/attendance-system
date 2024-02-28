@@ -54,6 +54,7 @@ if ($result_check_role->num_rows > 0) {
    
 } else {
     // Redirect to a default page if user role not found
+    
     header("location:login.php");
      // Ensure script terminates after redirection
 }

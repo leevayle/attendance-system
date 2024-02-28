@@ -14,6 +14,14 @@
     <script src="js/jquery.js"></script>
 </head>
 <body>
+<script>
+        let userdata = localStorage.getItem('user');
+        if(userdata){
+            
+        }else{
+            window.location.href = "login.php";
+        }
+</script>
 
     <!--    BLUR BACK LOADING   -->
     <div class="blur-back-100" id="blur-back-100">

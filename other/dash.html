@@ -12,6 +12,14 @@
 
 </head>
 <body>
+    <script>
+        let userdata = localStorage.getItem('user');
+        if(userdata){
+            
+        }else{
+            window.location.href = "login.php";
+        }
+    </script>
     <script src="js/jquery.js"></script>
 
     <!--    BLUR BACK LOADING   -->
@@ -513,7 +521,7 @@
             }
         });
 
-    </script>
+    </script>    
     
 
 </body>
@@ -521,5 +529,6 @@
 <script src="js/notifications.js" defer></script>
 <script src="js/dash.js" defer></script>
 <script src="js/fns.js" defer></script>
+<script src="js/timer.js" defer></script>
 
 </html>

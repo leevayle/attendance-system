@@ -244,6 +244,7 @@ require_once('conn.php');
             localStorage.setItem("user", name); // Use localStorage for persistence
             
         });
+        
     </script>
 
 </html>

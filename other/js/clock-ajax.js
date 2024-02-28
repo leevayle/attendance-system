@@ -40,4 +40,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Bind the event listener for triggering the AJAX request
     document.getElementById("clock-out-button").addEventListener("click", sendAjaxRequest);
+
 });

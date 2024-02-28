@@ -10,7 +10,14 @@
         <link rel="icon" href="images/favicon.png">
     </head>
 <body>
-
+    <script>
+        let userdata = localStorage.getItem('user');
+        if(userdata){
+            
+        }else{
+            window.location.href = "login.php";
+        }
+    </script>
 
 
     <div class="big"></div>
@@ -121,5 +128,6 @@
 
 <script src="js/fns.js" defer></script>
 <script src="js/dash-u.js" defer></script>
+<script src="js/timer.js" defer></script>
 
 </html>    
