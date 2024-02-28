@@ -6,6 +6,7 @@ if (myValue2){
     document.getElementById('user-profile').src = "images/ser.png";
 }
 
+
 //fetch the table data
 document.addEventListener('DOMContentLoaded', function() {
     // Load data from records.php when the page is loaded
@@ -26,151 +27,98 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
-
-//filter by from and to date
+//filtering algorithm
 $(document).ready(function() {
-    // Function to filter table rows based on date range
-    function filterTableByDateRange() {
-        // Get the "from" and "to" dates from the input fields
-        var fromDate = new Date($('#date-from').val());
-        var toDate = new Date($('#date-to').val());
+    // Fetch initial data
+    $.ajax({
+        url: 'table1.php',
+        success: function(data) {
+            $('#graph1').html(data);
+            // Enable time filter after initial data load
+            $('#early-late-filter').prop('disabled', false);
+        },
+        error: function(error) {
+            console.error("Error fetching data:", error);
+            alert("Error loading data.");
+        }
+    });
 
-        // Loop through each table row starting from the second row (index 1)
-        $('table tr:gt(0)').each(function() {
-            var rowDateStr = $(this).find('td:eq(5)').text(); // Assuming the date is in the 6th column (index 5)
+    // Fetch work in time
+    $.ajax({
+        url: 'time-filter.php', // Adjusted URL for work times script
+        success: function(data) {
+            var workInTime = data.workInTime;
+            // Use workInTime in the filtering logic
+        },
+        error: function(error) {
+            console.error("Error fetching work time:", error);
+            alert("Error loading work time.");
+        }
+    });
 
-            // Convert the row date string to a Date object
-            var rowDate = new Date(rowDateStr);
+    // Filter data on button click
+    $('#applyfilters').click(function() {
+        var dateFrom = $('#date-from').val();
+        var dateTo = $('#date-to').val();
+        var timeFilter = $('#early-late-filter').val();
+        var idFilter = $('#id-no-filter').val();
 
-            // Check if the row date falls within the specified range
-            if (rowDate >= fromDate && rowDate <= toDate) {
-                $(this).show(); // Show the row if it's within the range
-            } else {
-                $(this).hide(); // Otherwise, hide the row
-            }
-        });
-    }
+        // Build filter query string based on selected filters
+        var queryString = "";
+        if (dateFrom) {
+            queryString += "&date_from=" + dateFrom;
+        }
+        if (dateTo) {
+            queryString += "&date_to=" + dateTo;
+        }
+        if (timeFilter) {
+            queryString += "&time_filter=" + timeFilter;
+        }
+        if (idFilter) {
+            queryString += "&id_no=" + idFilter;
+        }
 
-    // Call the filter function when the "from" or "to" date inputs change
-    $('.filter-date-reports').on('change', filterTableByDateRange);
-});
-
-//filter by id no
-$(document).ready(function() {
-    // Function to filter table rows based on ID number
-    function filterTableById() {
-        // Get the ID number filter value
-        var idNumber = $('#id-no-filter').val().trim().toLowerCase();
-
-        // Loop through each table row starting from the second row (index 1)
-        $('table tr:gt(0)').each(function() {
-            var rowId = $(this).find('td:eq(0)').text().trim().toLowerCase(); // Assuming the ID number is in the first column (index 0)
-
-            // Check if the row ID matches the filter value or if the filter value is empty
-            if (rowId.includes(idNumber) || idNumber === '') {
-                $(this).show(); // Show the row if it matches the filter or if the filter is empty
-            } else {
-                $(this).hide(); // Otherwise, hide the row
-            }
-        });
-    }
-
-    // Call the filter function when the ID number filter input changes
-    $('#id-no-filter').on('input', filterTableById);
-});
-
- // filter bu time
-$(document).ready(function() {
-    var workInTime; // Variable to store the fetched work in time
-    
-    // Function to fetch work in time from PHP
-    function fetchWorkInTime() {
+        // Send AJAX request with filters
         $.ajax({
-            type: 'GET',
-            url: 'time-filter.php',
-            dataType: 'json',
-            success: function(response) {
-                workInTime = response.workInTime;
+            url: 'records.php?' + queryString, // Append query string to URL
+            success: function(data) {
+                $('#graph1').html(data);
 
-                // Call the filterTableByTime function initially
-                filterTableByTime();
+                //notify user
+               // successtext.textContent = "All selected filters applied";
+               // success.style.display = "block";
+               // showNotif();
             },
-            error: function(xhr, status, error) {
-                console.error('Error fetching work in time:', error);
-                // Handle errors or display error message to the user
+            error: function(error) {
+                console.error("Error filtering data:", error);
+
+                //notify user
+                errortext.textContent = "Error filtering data";
+                error.style.display = "block";
+                showNotif();
             }
         });
-    }
+    });
 
-    // Function to filter table rows based on selected filter option
-    function filterTableByTime() {
-        var timeFilter = $('#early-late-filter').val(); // Get selected time filter option
+    // Clear filters on button click
+    $('#disablefilters').click(function() {
+        $('#date-from').val("");
+        $('#date-to').val("");
+        $('#early-late-filter').prop('selectedIndex', 0);
+        $('#id-no-filter').val("");
+        // Trigger another AJAX request to fetch all data without filters
+        $('#applyfilters').click();
 
-        // Loop through each table row starting from the second row (index 1)
-        $('table tr:gt(0)').each(function() {
-            var rowTimeIn = $(this).find('td:eq(3)').text().trim(); // Assuming time in is in the fourth column (index 3)
-
-            // Compare the row time in with the fetched work in time and filter accordingly
-            if (timeFilter === 'early' && rowTimeIn < workInTime) {
-                $(this).show(); // Show the row for early check-ins
-            } else if (timeFilter === 'late' && rowTimeIn >= workInTime) {
-                $(this).show(); // Show the row for late check-ins
-            } else {
-                $(this).hide(); // Hide the row if it doesn't match the filter
-            }
-        });
-    }
-
-    // Call the fetchWorkInTime function when the document is ready to fetch work in time initially
-    fetchWorkInTime();
-
-    // Call the filterTableByTime function when the time filter select element changes
-    $('#early-late-filter').on('change', function() {
-        filterTableByTime(); // Re-filter the table when the time filter changes
+        //notify user
+       // warningtext.textContent = "All filters removed";
+       // warning.style.display = "block";
+        //showNotif();
     });
 });
+setTimeout( ()=>{
+    document.getElementById('removefilters').click();
+},200);
 
-// Engaging and disengaging the filters all at once
-$(document).ready(function() {
-    // Function to filter table rows based on date range
-    function filterTableByDateRange() {
-        
-    }
-
-    // Function to filter table rows based on ID number
-    function filterTableById() {
-        // Your existing code for filtering by ID number
-    }
-
-    // Function to filter table rows based on time
-    function filterTableByTime() {
-        // Your existing code for filtering by time
-    }
-
-
-    // Bind click event to disable all filters
-    $('#disablefilters').on('click', function() {
-        // Show all rows and reset filter inputs
-        $('table tr').show();
-        $('.filter-date-reports').val('');
-        $('#id-no-filter').val('');
-        $('#early-late-filter').val('Time filter');
-    });
-});
-document.addEventListener('DOMContentLoaded', ()=>{
-    // just an ingenius way to display data because it flashes and dissapears,, looks like its applying some filters already on load
-    setTimeout( ()=>{
-        document.getElementById('disablefilters').click();
-    },500)
-});
-
-//apply all filters aat once
-document.getElementById('applyfilters').addEventListener('click', ()=>{
-    filterTableByDateRange();
-    filterTableById();
-    filterTableByTime();
-});
 
 //printing
 document.querySelectorAll('#printtable, #printtablemobile').forEach(element => {
@@ -195,9 +143,7 @@ document.querySelectorAll('#printtable, #printtablemobile').forEach(element => {
                 <div id="tablediv">
                     ${document.getElementById('graph1').outerHTML}
                 </div>
-                <footer style="text-align: center; font-size: 10px; position: absolute; bottom: 0px; left: 30%;">
-                    This printout is a property of ${companyName}
-                </footer>
+                
             </body>
             </html>
         `);
@@ -211,15 +157,7 @@ document.querySelectorAll('#printtable, #printtablemobile').forEach(element => {
             printWindow.close(); // Close the print window after printing
         }, 500); // Adjust the delay as needed
     });
-});
-
-  
-  
-  
-
-
-
-
+}); 
 
 
 

@@ -18,69 +18,50 @@ if (isset($_POST['id_no'])) {
         $response['status'] = 'error';
         $response['message'] = 'Connection failed: ' . $conn->connect_error;
     } else {
-        // Prepare SQL query to count the number of users with role as admin
-        $sql_count_admin = "SELECT COUNT(*) AS admin_count FROM biodata WHERE role = 'admin'";
-        $result = $conn->query($sql_count_admin);
+        // Prepare SQL query to check the role of the user being deleted
+        $sql_get_role = "SELECT role FROM biodata WHERE id_no = ?";
+        $stmt = $conn->prepare($sql_get_role);
+        $stmt->bind_param("s", $id_no);
+        $stmt->execute();
+        $stmt->store_result();
 
-        if ($result) {
-            $row = $result->fetch_assoc();
-            $admin_count = $row['admin_count'];
+        // Check if user exists
+        if ($stmt->num_rows > 0) {
+            $stmt->bind_result($role);
+            $stmt->fetch();
 
             // Check if the user being deleted is an admin
-            $sql_get_role = "SELECT role FROM biodata WHERE id_no = ?";
-            $stmt = $conn->prepare($sql_get_role);
-            $stmt->bind_param("s", $id_no);
-            $stmt->execute();
-            $stmt->store_result();
-            if ($stmt->num_rows > 0) {
-                $stmt->bind_result($role);
-                $stmt->fetch();
+            if ($role == 'admin') {
+                // Prepare SQL query to count the number of admins
+                $sql_count_admin = "SELECT COUNT(*) AS admin_count FROM biodata WHERE role = 'admin'";
+                $result = $conn->query($sql_count_admin);
 
-                // If the user is an admin and there are more than one admins, proceed with deletion
-                if ($role == 'admin' && $admin_count > 1) {
-                    // Prepare SQL query to delete user from biodata table
-                    $sql_delete_user = "DELETE FROM biodata WHERE id_no = ?";
-                    $stmt = $conn->prepare($sql_delete_user);
-                    $stmt->bind_param("s", $id_no);
+                if ($result) {
+                    $row = $result->fetch_assoc();
+                    $admin_count = $row['admin_count'];
 
-                    // Execute the prepared statement
-                    if ($stmt->execute()) {
-                        // Check if any rows were affected
-                        if ($stmt->affected_rows > 0) {
-                            // User deleted successfully
-                            $response['status'] = 'success';
-                            $response['message'] = 'User deleted successfully.';
-                            
-                            // Check if profile picture file exists and delete it
-                            $profile_picture_extensions = array('jpg', 'jpeg', 'png'); // Allowed extensions
-                            foreach ($profile_picture_extensions as $ext) {
-                                $profile_picture_file = "images/profiles/" . $id_no . "." . $ext;
-                                if (file_exists($profile_picture_file)) {
-                                    unlink($profile_picture_file);
-                                    $response['profile_picture_message'] = 'Profile picture deleted successfully.';
-                                    break; // Stop searching if file is found and deleted
-                                }
-                            }
-                        } else {
-                            $response['status'] = 'error';
-                            $response['message'] = 'User not found.';
-                        }
+                    // Check conditions for deleting admin user
+                    if ($admin_count > 1) {
+                        // If there are more than one admins, proceed with deletion
+                        delete_user($conn, $id_no, $response);
                     } else {
+                        // Cannot delete the only admin user
                         $response['status'] = 'error';
-                        $response['message'] = 'Error deleting user: ' . $conn->error;
+                        $response['message'] = 'Cannot delete the only admin user.';
                     }
                 } else {
-                    // Do not delete the user if they are the only admin
+                    // Error counting admin users
                     $response['status'] = 'error';
-                    $response['message'] = 'Cannot delete the only admin user.';
+                    $response['message'] = 'Error counting admin users: ' . $conn->error;
                 }
             } else {
-                $response['status'] = 'error';
-                $response['message'] = 'User not found.';
+                // For non-admin users, proceed with deletion
+                delete_user($conn, $id_no, $response);
             }
         } else {
+            // User not found
             $response['status'] = 'error';
-            $response['message'] = 'Error counting admin users: ' . $conn->error;
+            $response['message'] = 'User not found.';
         }
 
         // Close the database connection
@@ -96,4 +77,29 @@ if (isset($_POST['id_no'])) {
 header('Content-Type: application/json');
 echo json_encode($response);
 
+// Function to delete user
+function delete_user($conn, $id_no, &$response) {
+    // Prepare SQL query to delete user from biodata table
+    $sql_delete_user = "DELETE FROM biodata WHERE id_no = ?";
+    $stmt = $conn->prepare($sql_delete_user);
+    $stmt->bind_param("s", $id_no);
+
+    // Execute the prepared statement
+    if ($stmt->execute()) {
+        // Check if any rows were affected
+        if ($stmt->affected_rows > 0) {
+            // User deleted successfully
+            $response['status'] = 'success';
+            $response['message'] = 'User deleted successfully.';
+        } else {
+            // User not found
+            $response['status'] = 'error';
+            $response['message'] = 'User not found.';
+        }
+    } else {
+        // Error deleting user
+        $response['status'] = 'error';
+        $response['message'] = 'Error deleting user: ' . $conn->error;
+    }
+}
 ?>

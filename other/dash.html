@@ -224,7 +224,7 @@
 
                     <div class="search-bar-cont">
                         <div class="search-bar" id="searchbar">
-                            <input type="text" class="search-bar searchbar-top-dash" placeholder="Search Id number to check status" id="search-dash-top">
+                            <input type="text" class="search-bar searchbar-top-dash" placeholder="Search Id number to check status" id="search-dash-top" autocomplete="off">
                             <div class="phone-nav">
                                 <div class="p-nav-element p-nav-active" id="dash-phone">
                                     <div class="p-nav-ico ">
@@ -387,12 +387,12 @@
                             </div>
 
                             <div class="graphs-dash">
-                                <div class="graph1" id="graph1" title="Today's earliest clock-ins">
+                                <div class="graph1" id="graph1" title="Today's latest clock-ins">
                                     
                                 </div>
                                 <div class="graph2">
                                     <div class="s-d-cont">
-                                        <input class="search-dash" type="text" placeholder="search id number" id="search2">
+                                        <input class="search-dash" type="text" placeholder="search id number" id="search2" autocomplete="off">
                                     </div>
                                     <div class="s-d-details">
                                         <div class="detals-d-s">
@@ -473,7 +473,7 @@
                 sendAjaxRequest(idNumber);
                 
             }else{
-                    warningtext.textContent = 'Kindly provide an Id';
+                    warningtext.textContent = 'Kindly provide an Id number';
                     warning.style.display = 'block';
                     showNotif();
             }
@@ -493,6 +493,10 @@
                     $('#id_no').text(response.data.id_no);
                     $('#time_in').text(response.data.time_in);
                     $('#time_out').text(response.data.time_out);
+
+                    successtext.textContent = `Status for ${response.data.fname}, Fetched!`;
+                    success.style.display = 'block';
+                    showNotif();
                 } else {
                     // Handle error
                     console.log('Error: ' + response.error);

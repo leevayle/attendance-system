@@ -14,7 +14,12 @@ if ($conn->connect_error) {
 $current_date = date("Y-m-d");
 
 // Fetch the first 5 entries of today from the clock table
-$sql = "SELECT id_no, fname, lname, time_in, time_out FROM clock WHERE date = ? LIMIT 20";
+$sql = "SELECT id_no, fname, lname, time_in, time_out 
+FROM clock 
+WHERE date = ? 
+ORDER BY time_in DESC 
+LIMIT 20";
+
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $current_date);
 $stmt->execute();

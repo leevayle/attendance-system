@@ -173,7 +173,7 @@
                     <!-- Search Form -->
                     <form id="s-form" class="flex full" >
                         <div class="search">
-                            <input type="search" class="search-input" placeholder="Search ID no" name="search" id="search">
+                            <input type="search" class="search-input" placeholder="Search ID no" name="search" id="search" autocomplete="off">
                         </div>
                         <div  class="search-btn" id="s-submit">
                             <div class="sb"><img src="images/icons/search.png" class="icon"></div>
@@ -283,14 +283,14 @@
                                     <div class="left1">
                                         <div class="form-title">  Use <b>Ctrl+x</b> to clear the form </div>
                                         <div class="input-holder2">
-                                            <input id="fname" type="text" placeholder="First name" name="f_name" required>
-                                            <input type="text" placeholder="Last name" name="l_name" required id="lname">
+                                            <input id="fname" type="text" placeholder="First name" name="f_name" required autocomplete="off">
+                                            <input type="text" placeholder="Last name" name="l_name" required id="lname" autocomplete="off">
                                         </div>
                                         <div class="input-holder1">
                                             <input type="text" placeholder="Email" class="ione" name="email" required id="email">
                                         </div>
                                         <div class="input-holder1">
-                                            <input type="text" placeholder="ID no" class="ione" name="id_no" required id="idnumber">
+                                            <input type="text" placeholder="ID no" class="ione" name="id_no" required id="idnumber" autocomplete="off">
                                         </div>
                                         <div class="input-holder2">
                                             <select required name="gender">
