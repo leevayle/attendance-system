@@ -91,6 +91,17 @@ function delete_user($conn, $id_no, &$response) {
             // User deleted successfully
             $response['status'] = 'success';
             $response['message'] = 'User deleted successfully.';
+
+            // Check if profile picture file exists and delete it
+            $profile_picture_extensions = array('jpg', 'jpeg', 'png'); // Allowed extensions
+            foreach ($profile_picture_extensions as $ext) {
+                $profile_picture_file = "images/profiles/" . $id_no . "." . $ext;
+                if (file_exists($profile_picture_file)) {
+                    unlink($profile_picture_file);
+                    $response['profile_picture_message'] = 'Profile picture deleted successfully.';
+                    break; // Stop searching if file is found and deleted
+                }
+            }
         } else {
             // User not found
             $response['status'] = 'error';

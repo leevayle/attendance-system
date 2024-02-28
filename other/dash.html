@@ -464,54 +464,54 @@
     
     <!--SCRIPT FOR UPDATING STATUS-->    
     <script>
-        $(document).ready(function() {
-    // Trigger AJAX request when Enter key is pressed in input fields
-    $('#search2, #search-dash-top').keypress(function(event) {
-        if (event.keyCode === 13) {
-            var idNumber = $(this).val().trim();
-            if (idNumber !== '') {
-                sendAjaxRequest(idNumber);
-                
-            }else{
-                    warningtext.textContent = 'Kindly provide an Id number';
-                    warning.style.display = 'block';
-                    showNotif();
-            }
-        }
-    });
-
-    function sendAjaxRequest(idNumber) {
-        $.ajax({
-            type: 'POST',
-            url: 'search-dash.php',
-            data: { idNumber: idNumber },
-            dataType: 'json',
-            success: function(response) {
-                if (response && response.success === true) {
-                    // Auto-fill div elements with received data
-                    $('#fname').text(response.data.fname);
-                    $('#id_no').text(response.data.id_no);
-                    $('#time_in').text(response.data.time_in);
-                    $('#time_out').text(response.data.time_out);
-
-                    successtext.textContent = `Status for ${response.data.fname}, Fetched!`;
-                    success.style.display = 'block';
-                    showNotif();
-                } else {
-                    // Handle error
-                    console.log('Error: ' + response.error);
-                    errortext.textContent = 'Invalid id number';
-                    error.style.display = 'block';
-                    showNotif();
+                $(document).ready(function() {
+            // Trigger AJAX request when Enter key is pressed in input fields
+            $('#search2, #search-dash-top').keypress(function(event) {
+                if (event.keyCode === 13) {
+                    var idNumber = $(this).val().trim();
+                    if (idNumber !== '') {
+                        sendAjaxRequest(idNumber);
+                        
+                    }else{
+                            warningtext.textContent = 'Kindly provide an Id number';
+                            warning.style.display = 'block';
+                            showNotif();
+                    }
                 }
-            },
-            error: function(xhr, status, error) {
-                // Handle AJAX error
-                console.log('AJAX request failed: ' + error);
+            });
+
+            function sendAjaxRequest(idNumber) {
+                $.ajax({
+                    type: 'POST',
+                    url: 'search-dash.php',
+                    data: { idNumber: idNumber },
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response && response.success === true) {
+                            // Auto-fill div elements with received data
+                            $('#fname').text(response.data.fname);
+                            $('#id_no').text(response.data.id_no);
+                            $('#time_in').text(response.data.time_in);
+                            $('#time_out').text(response.data.time_out);
+
+                            successtext.textContent = `Status for ${response.data.fname}, Fetched!`;
+                            success.style.display = 'block';
+                            showNotif();
+                        } else {
+                            // Handle error
+                            console.log('Error: ' + response.error);
+                            errortext.textContent = 'The user does not exist!';
+                            error.style.display = 'block';
+                            showNotif();
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle AJAX error
+                        console.log('AJAX request failed: ' + error);
+                    }
+                });
             }
         });
-    }
-});
 
     </script>
     

@@ -116,8 +116,8 @@ $(document).ready(function() {
     });
 });
 setTimeout( ()=>{
-    document.getElementById('removefilters').click();
-},200);
+    document.getElementById('disablefilters').click();
+},500);
 
 
 //printing
