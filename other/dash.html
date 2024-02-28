@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="css/notifications.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="icon" href="images/favicon.png">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/jquery.js"></script>
 
 </head>
 <body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/jquery.js"></script>
 
     <!--    BLUR BACK LOADING   -->
 <div class="blur-back-100" id="blur-back-100">
@@ -224,7 +224,7 @@
 
                     <div class="search-bar-cont">
                         <div class="search-bar" id="searchbar">
-                            <input type="text" class="search-bar searchbar-top-dash" placeholder="Search Id number" id="search-dash-top">
+                            <input type="text" class="search-bar searchbar-top-dash" placeholder="Search Id number to check status" id="search-dash-top">
                             <div class="phone-nav">
                                 <div class="p-nav-element p-nav-active" id="dash-phone">
                                     <div class="p-nav-ico ">
@@ -397,21 +397,21 @@
                                     <div class="s-d-details">
                                         <div class="detals-d-s">
                                             <div class="top-details">
-                                                <div class="title-d-s" id="id-no">- -</div>
+                                                <div class="title-d-s" id="id_no">- -</div>
                                                 <div class="tile-title-dash3 id-no-name">Id Number</div>
                                             </div>
                                             <div class="top-details">
-                                                <div class="title-d-s" id="timeinlabel">- -</div>
+                                                <div class="title-d-s" id="time_in">- -</div>
                                                 <div class="tile-title-dash3 id-no-name">Time In</div>
                                             </div>
                                         </div>
                                         <div class="detals-d-s">
                                             <div class="top-details">
-                                                <div class="title-d-s" id="firstNameLabel">- -</div>
+                                                <div class="title-d-s" id="fname">- -</div>
                                                 <div class="tile-title-dash3 id-no-name">Name</div>
                                             </div>
                                             <div class="top-details">
-                                                <div class="title-d-s" id="timeOutLabel">- -</div>
+                                                <div class="title-d-s" id="time_out">- -</div>
                                                 <div class="tile-title-dash3 id-no-name">Time Out</div>
                                             </div>
                                         </div>
@@ -465,54 +465,50 @@
     <!--SCRIPT FOR UPDATING STATUS-->    
     <script>
         $(document).ready(function() {
-            $('#search2, #search-dash-top').keypress(function(event) {
-                if (event.keyCode === 13) { // Check if the Enter key was pressed (key code 13)
-                    var idNumber;
-                    // Check which textbox has text
-                    if ($('#search2').val().trim() !== '') {
-                        idNumber = $('#search2').val().trim();
-                    } else if ($('#search-dash-top').val().trim() !== '') {
-                        idNumber = $('#search-dash-top').val().trim();
-                    } else {
-                        // Neither textbox has text, exit function
-                        return;
-                    }
-                    // Call a function to send the AJAX request
-                    sendAjaxRequest(idNumber);
+    // Trigger AJAX request when Enter key is pressed in input fields
+    $('#search2, #search-dash-top').keypress(function(event) {
+        if (event.keyCode === 13) {
+            var idNumber = $(this).val().trim();
+            if (idNumber !== '') {
+                sendAjaxRequest(idNumber);
+                
+            }else{
+                    warningtext.textContent = 'Kindly provide an Id';
+                    warning.style.display = 'block';
+                    showNotif();
+            }
+        }
+    });
+
+    function sendAjaxRequest(idNumber) {
+        $.ajax({
+            type: 'POST',
+            url: 'search-dash.php',
+            data: { idNumber: idNumber },
+            dataType: 'json',
+            success: function(response) {
+                if (response && response.success === true) {
+                    // Auto-fill div elements with received data
+                    $('#fname').text(response.data.fname);
+                    $('#id_no').text(response.data.id_no);
+                    $('#time_in').text(response.data.time_in);
+                    $('#time_out').text(response.data.time_out);
+                } else {
+                    // Handle error
+                    console.log('Error: ' + response.error);
+                    errortext.textContent = 'Invalid id number';
+                    error.style.display = 'block';
+                    showNotif();
                 }
-            });
-    
-            function sendAjaxRequest(idNumber) {
-                // AJAX request
-                $.ajax({
-                    type: 'POST',
-                    url: 'search-dash.php',
-                    data: { idNumber: idNumber },
-                    dataType: 'json',
-                    success: function(response) {
-                        // Check if the response contains data
-                        if (response.fname !== undefined && response.id_no !== undefined && response.time_in !== undefined && response.time_out !== undefined) {
-                            // Update HTML elements with received data
-                            $('#id-no').text(response.id_no);
-                            $('#firstNameLabel').text(response.fname);
-                            $('#timeinlabel').text(response.time_in);
-                            $('#timeOutLabel').text(response.time_out);
-                        } else {
-                            // Handle case when no data is returned
-                            errortext.textContent = 'User absent or Id number is invalid';
-                            error.style.display = 'block';
-                            showNotif();
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        // Handle error
-                        warningtext.textContent = 'An error occurred while processing your request. Please try again later.';
-                        warning.style.display = 'block';
-                        showNotif();
-                    }
-                });
+            },
+            error: function(xhr, status, error) {
+                // Handle AJAX error
+                console.log('AJAX request failed: ' + error);
             }
         });
+    }
+});
+
     </script>
     
 
