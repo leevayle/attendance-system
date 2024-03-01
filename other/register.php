@@ -155,17 +155,19 @@
                 </a>
 
                 <!--    Nav profile -->
-                <div class="profile-nav">
-                    <div class="profile-nav-pic" title="Click to log out" onclick="LogOut()">
-                        <img id="user-profile" class="icon" src="">
+                <div class="profile-nav" >
+                       
+                        <div class="profile-nav-pic" onclick="LogOut()" title="Click to log out">
+                             <div class="profile-status" id="profile-status" title="Yout Clok status"></div>
+                            <img id="user-profile" class="icon round" src="images/profile.png">
+                        </div>
+                        <div class="profile-nav-caption">
+                                <p id="usernamedash">Admin</p>
+                        </div>
+                        <div class="company-name company">
+                            <p ><a href="https://samoyugisolutions.co.ke" target="_blank" id="company-name">Leek softwares ltd.</a></p>
+                        </div>
                     </div>
-                    <div class="profile-nav-caption">
-                            <p id="usernamedash">Admin</p>
-                    </div>
-                    <div class="company-name company">
-                        <p id="company-name"><a href="https://samoyugisolutions.co.ke" target="_blank">Leek softwares ltd.</a></p>
-                    </div>
-                </div>
             </div>
             
         </div>

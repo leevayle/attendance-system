@@ -3,7 +3,10 @@
 document.getElementById('usernamedash').innerHTML = localStorage.getItem("user");
 document.getElementById('company-name').innerHTML = localStorage.getItem("company");
 document.getElementById('totalreg').textContent = localStorage.getItem("totalreg");
-document.getElementById('totalenrolled').textContent = localStorage.getItem("totalenrolled");
+const totalemployees = localStorage.getItem("totalreg");
+const totalpresent = localStorage.getItem("totalclocks");
+document.getElementById('totalenrolled').textContent = (totalemployees-totalpresent);
+
 document.getElementById('totalclocks').textContent = localStorage.getItem("totalclocks");
 document.getElementById('totallate').textContent = localStorage.getItem("totallate");
 document.getElementById('totalontime').textContent = localStorage.getItem("totalontime");
@@ -24,7 +27,9 @@ document.getElementById('apply-filters').addEventListener('click',()=>{
 
 
 //navigation actions...both pc and mobile
-const dash = "fetch.php";
+var idNo = localStorage.getItem('idNo');
+
+const dash = "fetch.php?idNo="+ idNo;
 const clockin = "clock-in.html";
 const reports = "reports.html";
 const clockout = "clock-out.html";
@@ -51,6 +56,22 @@ searchInput1.addEventListener('focus', () => {
 searchInput2.addEventListener('focus', () => {
     // Clear the value of the first textbox
     searchInput1.value = '';
+});
+
+
+
+const thisstatus = localStorage.getItem('thisstatus');
+if (thisstatus == "yes"){
+    document.getElementById('profile-status').style.background = 'lime';
+}else{
+    document.getElementById('profile-status').style.background = 'red';
+}
+//refresh dash immediately after load
+document.addEventListener('DOMContentLoaded', () => {
+    if (!sessionStorage.getItem('buttonClicked')) {
+        document.getElementById('refreshbtn').click();
+        sessionStorage.setItem('buttonClicked', true);
+    }
 });
 
 

@@ -102,7 +102,7 @@ if ($conn->query($sql_insert_company) !== TRUE) {
         date DATE,
         time_in TIME,
         time_out TIME,
-        absent ENUM('yes', 'no'),
+        shift ENUM('day', 'night'),
         overtime ENUM('yes', 'no')
     )";
     if ($conn->query($sql_create_clock) !== TRUE) {

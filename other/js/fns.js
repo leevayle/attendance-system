@@ -75,6 +75,7 @@ function LogOut1() {
 }
 
 function LogOut(){
+    localStorage.clear();
     Loading();
     setTimeout(()=>{
         window.location.href = "login.php";

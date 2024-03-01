@@ -65,7 +65,7 @@ if ($result_check_role->num_rows > 0) {
      // Ensure script terminates after redirection
 } else {
     echo 'success!';
-    echo '<script>window.location.href = "dash.html";</script>';
+    echo '<script>window.location.href = "fetch.php";</script>';
      // Ensure script terminates after redirection
 }
 

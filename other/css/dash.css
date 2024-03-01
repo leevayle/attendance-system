@@ -134,14 +134,27 @@ a{text-decoration: none;}
 .profile-nav-pic{
     width: 60px;
     height: 60px;
-    border: 1px solid;
-    border-color: red;
     margin: auto;
     margin-top: 10px;
     border-radius: 50%;
-    overflow: hidden;
     padding: 1px 1px 1px 1px;
     box-shadow: rgba(255, 255, 255, 0.582) 0px 1px 8px;
+    position: relative;
+}
+.round{
+    border-radius: 50%;
+}
+.profile-status{
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    right: 13px;
+    bottom: -1px;
+    border-radius: 50%;
+    box-shadow: rgba(14, 14, 14, 0.682) 0px -2px 8px;
+}
+#profile-status{
+    background: red;
 }
 .profile-nav-pic:hover{
     cursor: pointer;
