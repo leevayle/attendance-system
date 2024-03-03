@@ -158,7 +158,7 @@
                 <div class="profile-nav" >
                        
                         <div class="profile-nav-pic" onclick="LogOut()" title="Click to log out">
-                             <div class="profile-status" id="profile-status" title="Yout Clok status"></div>
+                             <div class="profile-status" id="profile-status" title="Yout Clok status" style="display: none;"></div>
                             <img id="user-profile" class="icon round" src="images/profile.png">
                         </div>
                         <div class="profile-nav-caption">

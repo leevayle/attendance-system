@@ -13,74 +13,77 @@
 
     <!--NOTIFICATIONS       __________________________-->
 <section id="notification">
-    <div class="notify-cont" id="notify-cont">
-        <div class="main-n-cont">               
-         
-            <div class="main-n" id="success">
-                <div class="left-n"></div>
-                <div class="right-n" id="closesuccess">
-                    <div class="cross" id="cross1"></div>
-                    <div class="cross" id="cross2"></div>
-                </div>
-                <div class="check-n">
-                    <div class="cross" id="cross3"></div>
-                    <div class="cross" id="cross4"></div>
-                </div>
-                <div class="text-n" id="success-text">
-                    
-                </div>
+            <div class="notify-cont" id="notify-cont">
+                <div class="main-n-cont">               
+                
+                    <div class="main-n" id="success">
+                        <div class="left-n"></div>
+                        <div class="right-n" id="closesuccess">
+                            <div class="cross" id="cross1"></div>
+                            <div class="cross" id="cross2"></div>
+                        </div>
+                        <div class="check-n">
+                            <div class="cross" id="cross3"></div>
+                            <div class="cross" id="cross4"></div>
+                        </div>
+                        <div class="text-n" id="success-text">
+                            
+                        </div>
+
+                    </div>
+
+                    <div class="main-n-e" id="error">
+                        <div class="left-n-e"></div>
+                        <div class="right-n-e" id="closeerror">
+                            <div class="cross-e" id="cross1-e"></div>
+                            <div class="cross-e" id="cross2-e"></div>
+                        </div>
+                        <div class="check-n-e">
+                            <div class="cross-e" id="cross3-e"></div>
+                            <div class="cross-e" id="cross4-e"></div>
+                        </div>
+                        <div class="text-n" id="error-text">
+                            
+                        </div>
+
+                    </div>
+
+                    <div class="main-n-i" id="info">
+                        <div class="left-n-i"></div>
+                        <div class="right-n-i" id="closeinfo">
+                            <div class="cross-i" id="cross1-i"></div>
+                            <div class="cross-i" id="cross2-i"></div>
+                        </div>
+                        <div class="check-n-i">
+                            <div class="cross-i" id="cross3-i"></div>
+                            <div class="cross-i" id="cross4-i"></div>
+                        </div>
+                        <div class="text-n" id="info-text">
+                            
+                        </div>
+                        </div>
+
+                        <div class="main-n-w" id="warning">
+                            <div class="left-n-w"></div>
+                            <div class="right-n-w" id="closewarning"> 
+                                <div class="cross-w" id="cross1-w"></div>
+                                <div class="cross-w" id="cross2-w"></div>
+                            </div>
+                            <div class="check-n-w">
+                                <div class="cross-w" id="cross3-w"></div>
+                                <div class="cross-w" id="cross4-w"></div>
+                            </div>
+                            <div class="text-n" id="warning-text">
+                                
+                            </div>
+                        </div>
 
             </div>
-
-            <div class="main-n-e" id="error">
-                <div class="left-n-e"></div>
-                <div class="right-n-e" id="closeerror">
-                    <div class="cross-e" id="cross1-e"></div>
-                    <div class="cross-e" id="cross2-e"></div>
-                </div>
-                <div class="check-n-e">
-                    <div class="cross-e" id="cross3-e"></div>
-                    <div class="cross-e" id="cross4-e"></div>
-                </div>
-                <div class="text-n" id="error-text">
-                    
-                </div>
-
             </div>
-
-            <div class="main-n-i" id="info">
-                <div class="left-n-i"></div>
-                <div class="right-n-i" id="closeinfo">
-                    <div class="cross-i" id="cross1-i"></div>
-                    <div class="cross-i" id="cross2-i"></div>
-                </div>
-                <div class="check-n-i">
-                    <div class="cross-i" id="cross3-i"></div>
-                    <div class="cross-i" id="cross4-i"></div>
-                </div>
-                <div class="text-n" id="info-text">
-                    
-                </div>
-                </div>
-
-                <div class="main-n-w" id="warning">
-                    <div class="left-n-w"></div>
-                    <div class="right-n-w" id="closewarning"> 
-                        <div class="cross-w" id="cross1-w"></div>
-                        <div class="cross-w" id="cross2-w"></div>
-                    </div>
-                    <div class="check-n-w">
-                        <div class="cross-w" id="cross3-w"></div>
-                        <div class="cross-w" id="cross4-w"></div>
-                    </div>
-                    <div class="text-n" id="warning-text">
-                        
-                    </div>
-                </div>
-
-    </div>
-  </div>
-  </section>
+</section>
+<script>
+    sessionStorage.clear();
+</script>
 
 
 
