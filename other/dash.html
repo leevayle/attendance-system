@@ -110,48 +110,60 @@
                     <div class="set-top-close" id="settings-close"><img src="images/icons/x icon.png" class="icon"></div>
                 </div>
 
-                
-                <div class="set-theme">
-                    <div class="theme-box">
-                        <div class="theme-box-pic"><img src="images/masculine.png" class="height-only"> </div>
-                    </div>
-                    <div class="theme-box">
-                        <div class="theme-box-pic"><img src="images/feminine.png" class="height-only"> </div>
-                    </div>
+                <div class="set-holder" style="overflow-y: auto;">
+
                     
-                </div>
-                <div class="set-title">Choose your theme</div>
-                <hr />
-
-
-                <form id="company-form" method="post" action="update-c.php">
-                    <div class="company-name-form">
-                        <input type="text" name="company-name" placeholder="Company Name">
-                        <p>Company Name</p>
+                    <div class="set-theme">
+                        <div class="theme-box">
+                            <div class="theme-box-pic"><img src="images/masculine.png" class="height-only"> </div>
+                        </div>
+                        <div class="theme-box">
+                            <div class="theme-box-pic"><img src="images/feminine.png" class="height-only"> </div>
+                        </div>
+                        
                     </div>
-                
-                    <div class="company-name-form" style="display: block;">
-                        <input type="time" name="ci-time" placeholder="Clock in time">
-                        <p>Clock in Time</p>
-                    </div>
-                
-                    <div class="company-name-form">
-                        <input type="time" name="co-time" placeholder="Clock out time">
-                        <p>Clock out Time</p>
-                    </div>
+                    <div class="set-title">Choose your theme</div>
                     <hr />
-                
-                   <!-- <div class="company-name-form">
-                        <input type="file" name="logo" style="width: 200px;">  
-                        <label for="logo">Company Logo</label>                 
-                    </div> -->
+
+
+                    <form id="company-form" style="margin-bottom: 20px;" method="post" action="update-c.php">
+                        <div class="company-name-form">
+                            <input type="text" name="company-name" placeholder="Company Name">
+                            <p>Company Name</p>
+                        </div>
                     
+                        <div class="company-name-form" style="display: block;">
+                            <input type="time" name="ci-time" placeholder="Clock in time">
+                            <p>Clock in Time Day shift</p>
+                        </div>
+                    
+                        <div class="company-name-form">
+                            <input type="time" name="co-time" placeholder="Clock out time">
+                            <p>Clock out Time Day shift</p>
+                        </div>
+
+                        <div class="company-name-form">
+                            <input type="time" name="ci-time-n" placeholder="Clock out time night">
+                            <p>Clock in Time Night shift</p>
+                        </div>
+
+                        <div class="company-name-form">
+                            <input type="time" name="co-time-n" placeholder="Clock out time night">
+                            <p>Clock out Time Night shift</p>
+                        </div>
+                        <hr />
+                    
+                    <!-- <div class="company-name-form">
+                            <input type="file" name="logo" style="width: 200px;">  
+                            <label for="logo">Company Logo</label>                 
+                        </div> -->
+                        
+                    
+                        <button class="f-button" type="submit">Update</button>
+                    </form>                
                 
-                    <button class="f-button" type="submit">Update</button>
-                </form>                
                 
-                
-            
+                </div>
             </div>
         </div>
     </section>
