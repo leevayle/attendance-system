@@ -177,8 +177,8 @@
     <div class="app-whole">
         <div class="dash-cont-parent">
 
-            <div class="search-bar-cont ">
-                <div class="search-bar flex" id="searchbar">
+            <div class="search-bar-cont " style="padding-bottom:5px;">
+                <div class="search-bar flex" id="searchbar" style="width: 75%;">
 
                     <!-- Search Form -->
                     <form id="s-form" class="flex full" >
@@ -251,10 +251,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="search-bar" id="profile">
-                            <div class="top-profile" id="updateRole">
+                <div class="search-bar" id="profile" style="width:22%;">
+
+                            <div class="top-profile" id="updateprofile" title="Update profile-picture">
                                 <div class="notification-top">
-                                    <img class="icon" src="images/icons/refresh2.png" title="Update role">
+                                    <img class="icon" src="images/icons/3683214.png" >
+                                </div>
+                                
+                            </div>
+
+                            <div class="top-profile" id="updateRole" title="Update role">
+                                <div class="notification-top">
+                                    <img class="icon" src="images/icons/refresh2.png" >
                                 </div>
                                 
                             </div>
