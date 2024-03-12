@@ -10,6 +10,14 @@
         <link rel="icon" href="images/favicon.png">
     </head>
 <body>
+    <script>
+        let userdata = localStorage.getItem('user');
+        if(userdata){
+            
+        }else{
+            window.location.href = "login.php";
+        }
+</script>
     <div class="body">
 
          <!--    BLUR BACK LOADING   -->

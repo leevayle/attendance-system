@@ -10,6 +10,14 @@
         <link rel="icon" href="images/favicon.png">
     </head>
 <body>
+    <script>
+        let userdata = localStorage.getItem('user');
+        if(userdata){
+            
+        }else{
+            window.location.href = "login.php";
+        }
+</script>
     <div class="body">
 
                 <!--    BLUR BACK LOADING   -->
@@ -23,7 +31,7 @@
 
             <div class="title1">
                
-               <b>Hey there, <b id="name">Leevayle!</b></b>
+               <b>Hey there, <b id="name">Username!</b></b>
                <script>
                 document.getElementById('name').innerHTML = localStorage.getItem("user")+"!";
                </script>
@@ -31,7 +39,7 @@
 
             <div class="title2">
                 
-                <p>Click the button below to clock  out!</p>
+                <p>Click the button below to clock out!</p>
             </div>
 
             <div class="pic-holder">

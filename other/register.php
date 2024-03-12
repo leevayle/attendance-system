@@ -185,7 +185,7 @@
                         <div class="search">
                             <input type="search" class="search-input" placeholder="Search ID no" name="search" id="search" autocomplete="off">
                         </div>
-                        <div  class="search-btn" id="s-submit">
+                        <div  class="search-btn" id="s-submit" title="click to search">
                             <div class="sb"><img src="images/icons/search.png" class="icon"></div>
                         </div>
                     </form>
@@ -311,12 +311,12 @@
                                             <input type="text" placeholder="ID no" class="ione" name="id_no" required id="idnumber" autocomplete="off">
                                         </div>
                                         <div class="input-holder2">
-                                            <select required name="gender">
+                                            <select required name="gender" title="choose gender">
                                                 <option value="male">Male</option>
                                                 <option value="female">Female</option>
                                                 <option value="other">Other</option>
                                             </select>   
-                                            <select required name="role" id="role">
+                                            <select required name="role" id="role" title="choose role">
                                                 <option value="user">User</option>
                                                 <option value="admin">Admin</option>
                                             </select>
@@ -331,7 +331,7 @@
                                         </div>
                                         
                                         <div class="input-holder2" id="btns">
-                                        <button type="submit" class="reg" id="submit">Register</button>
+                                        <button type="submit" class="reg" id="submit" title="submit">Register</button>
                                         </div>
                                     </div>
                                 </form>
