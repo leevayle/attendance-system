@@ -74,13 +74,17 @@ try {
     }
 
     // Create company table
+    //modified to include p.k as the ref no
     $sql_create_company = "CREATE TABLE IF NOT EXISTS company (
-        ref VARCHAR(20),
+        ref VARCHAR(20) PRIMARY KEY,
         name VARCHAR(100) NOT NULL,
         logo_dir VARCHAR(255),
         work_in_time TIME,
-        work_out_time TIME
-    )";
+        work_out_time TIME,
+        work_in_time_night TIME,
+        work_out_time_night TIME
+      );
+      ";
     if ($conn->query($sql_create_company) !== TRUE) {
         throw new Exception("Error creating table 'company': " . $conn->error);
     }
@@ -173,8 +177,3 @@ $conn->close();
 <script src="../other/js/install.js" defer></script>-->
 
 </html>
-
-
-
-
-

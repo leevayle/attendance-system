@@ -221,6 +221,8 @@ a{text-decoration: none;}
     width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+    scrollbar-width:thin;
+    scrollbar-color: rgba(59, 141, 218, 0.322) rgba(249, 253, 35, 0);
 }
 .set-holder form{
     margin-bottom: 20px;
