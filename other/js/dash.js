@@ -74,6 +74,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+//theme changes
+document.getElementById('feminine').addEventListener('click', ()=>{
+    var styles = document.getElementById('stylesheet');
+    styles.href = "css/dash-f.css";
+});
+document.getElementById('masculine').addEventListener('click', ()=>{
+    var styles = document.getElementById('stylesheet');
+    styles.href = "css/dash.css";
+});
+
 
 
 document.getElementById('register').addEventListener('click', ()=>{
