@@ -90,13 +90,59 @@ document.addEventListener('DOMContentLoaded', ()=>{
 document.getElementById('feminine').addEventListener('click', ()=>{
     var styles = document.getElementById('stylesheet');
     localStorage.setItem("theme",`feminine`);
-    console.log('Theme 2 activated');
+
+// Retrieve the ID from local storage
+var id = localStorage.getItem('idNo');
+
+// Check if the ID is present in local storage
+if (id) {
+    $.ajax({
+        url: 'themes.php',
+        method: 'POST',
+        data: { id: id, theme: 'feminine' }, // Replace 'masculine' with the desired theme
+        success: function(response) {
+            console.log('Theme 2 active');
+            // Handle success, if needed
+        },
+        error: function(xhr, status, error) {
+            console.error('Error updating theme:', error);
+            // Handle error, if needed
+        }
+    });
+} else {
+    console.error('ID not found in local storage');
+}
+
+
+
+   // console.log('Theme 2 activated');
     styles.href = "css/dash-f.css";
 });
+
 document.getElementById('masculine').addEventListener('click', ()=>{
     var styles = document.getElementById('stylesheet');
     localStorage.setItem("theme",`masculine`);
-    console.log('Theme 1 activated');
+
+    // Check if the ID is present in local storage
+    var id = localStorage.getItem('idNo');
+if (id) {
+    $.ajax({
+        url: 'themes.php',
+        method: 'POST',
+        data: { id: id, theme: 'masculine' }, // Replace 'masculine' with the desired theme
+        success: function(response) {
+            console.log('Theme 1 active');
+            // Handle success, if needed
+        },
+        error: function(xhr, status, error) {
+            console.error('Error updating theme:', error);
+            // Handle error, if needed
+        }
+    });
+} else {
+    console.error('ID not found in local storage');
+}
+    //console.log('Theme 1 activated');
     styles.href = "css/dash.css";
 }); // I need an ajax that updates the database with the theme
 
