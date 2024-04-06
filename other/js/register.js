@@ -2,6 +2,17 @@
 const password = document.getElementById('password');
 const myValue1 = localStorage.getItem('profileUrl');
 
+//Initial theme of the page on load
+document.addEventListener('DOMContentLoaded', ()=>{
+    let initialtheme = localStorage.getItem("theme");
+ 
+    if (initialtheme === 'masculine'){
+     document.getElementById('stylesheet').href = "css/dash.css";
+    }else{
+     document.getElementById('stylesheet').href = "css/dash-f.css";
+    }
+ });
+
 
 // displaying the profile pic
 if (myValue1){

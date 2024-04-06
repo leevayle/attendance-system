@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attendance system</title>
     
-    <link rel="stylesheet" href="css/dash.css">
+    <link rel="stylesheet" href="css/dash.css" id="stylesheet">
     <link rel="stylesheet" href="css/notifications.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/register.css" id="stylesheet">

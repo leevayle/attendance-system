@@ -66,7 +66,7 @@ if (thisstatus == "yes"){
 }else{
     document.getElementById('profile-status').style.background = 'red';
 }
-//refresh dash immediately after load
+//refresh dash immediately after load  //Goofy way of updating the clock status color
 document.addEventListener('DOMContentLoaded', () => {
     if (!sessionStorage.getItem('buttonClicked')) {
         document.getElementById('refreshbtn').click();
@@ -74,15 +74,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
+//Initial theme of the page on load
+document.addEventListener('DOMContentLoaded', ()=>{
+   let initialtheme = localStorage.getItem("theme");
+
+   if (initialtheme === 'masculine'){
+    document.getElementById('stylesheet').href = "css/dash.css";
+   }else{
+    document.getElementById('stylesheet').href = "css/dash-f.css";
+   }
+});
+
 //theme changes
 document.getElementById('feminine').addEventListener('click', ()=>{
     var styles = document.getElementById('stylesheet');
+    localStorage.setItem("theme",`feminine`);
+    console.log('Theme 2 activated');
     styles.href = "css/dash-f.css";
 });
 document.getElementById('masculine').addEventListener('click', ()=>{
     var styles = document.getElementById('stylesheet');
+    localStorage.setItem("theme",`masculine`);
+    console.log('Theme 1 activated');
     styles.href = "css/dash.css";
-});
+}); // I need an ajax that updates the database with the theme
 
 
 

@@ -6,6 +6,17 @@ if (myValue2){
     document.getElementById('user-profile').src = "images/ser.png";
 }
 
+//Initial theme of the page on load
+document.addEventListener('DOMContentLoaded', ()=>{
+    let initialtheme = localStorage.getItem("theme");
+ 
+    if (initialtheme === 'masculine'){
+     document.getElementById('stylesheet').href = "css/dash.css";
+    }else{
+     document.getElementById('stylesheet').href = "css/dash-f.css";
+    }
+ });
+ 
 
 //fetch the table data
 document.addEventListener('DOMContentLoaded', function() {
