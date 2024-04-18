@@ -1,5 +1,7 @@
 ErrorDocument 404 "/attendance.app/errors/404.html"
 ErrorDocument 403 "/attendance.app/errors/403.html"
+DirectoryIndex home.html
+
 
 AddType application/font-ttf .ttf
 
